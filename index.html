@@ -1114,9 +1114,9 @@ table.leads tr:last-child td { border-bottom: none; }
           <div class="kpi-label">Leads totales</div>
           <div class="kpi-icon">🎯</div>
         </div>
-        <div class="kpi-value" data-target="47" data-suffix="">0</div>
+        <div class="kpi-value" id="kpi-leads" data-target="47" data-suffix="">0</div>
         <div class="kpi-footer">
-          <span class="kpi-delta up">↑ +12</span>
+          <span class="kpi-delta up" id="delta-leads">↑ +12</span>
           <span class="kpi-period">vs ayer</span>
         </div>
       </div>
@@ -1127,9 +1127,9 @@ table.leads tr:last-child td { border-bottom: none; }
           <div class="kpi-label">Demos enviadas</div>
           <div class="kpi-icon">📩</div>
         </div>
-        <div class="kpi-value" data-target="12" data-suffix="">0</div>
+        <div class="kpi-value" id="kpi-demos" data-target="12" data-suffix="">0</div>
         <div class="kpi-footer">
-          <span class="kpi-delta up">↑ +3</span>
+          <span class="kpi-delta up" id="delta-demos">↑ +3</span>
           <span class="kpi-period">vs ayer</span>
         </div>
       </div>
@@ -1140,9 +1140,9 @@ table.leads tr:last-child td { border-bottom: none; }
           <div class="kpi-label">Ventas cerradas</div>
           <div class="kpi-icon">💰</div>
         </div>
-        <div class="kpi-value" data-target="2" data-suffix="">0</div>
+        <div class="kpi-value" id="kpi-ventas" data-target="2" data-suffix="">0</div>
         <div class="kpi-footer">
-          <span class="kpi-delta up">↑ +1</span>
+          <span class="kpi-delta up" id="delta-ventas">↑ +1</span>
           <span class="kpi-period">vs ayer</span>
         </div>
       </div>
@@ -1153,9 +1153,9 @@ table.leads tr:last-child td { border-bottom: none; }
           <div class="kpi-label">Cash hoy</div>
           <div class="kpi-icon">✦</div>
         </div>
-        <div class="kpi-value" data-target="2000" data-suffix="€">0</div>
+        <div class="kpi-value" id="kpi-cash-hoy" data-target="2000" data-suffix="€">0</div>
         <div class="kpi-footer">
-          <span class="kpi-delta up">↑ +500€</span>
+          <span class="kpi-delta up" id="delta-cash-hoy">↑ +500€</span>
           <span class="kpi-period">vs ayer</span>
         </div>
       </div>
@@ -1290,10 +1290,10 @@ table.leads tr:last-child td { border-bottom: none; }
 
         <!-- CASH -->
         <div class="cash-hero fade-up delay-3">
-          <div class="cash-eyebrow">Cash collected · Abril 2026</div>
-          <div class="cash-number" data-target="4200" data-suffix="€">0€</div>
-          <div class="cash-period">Meta mensual: 5.000€ · 84% completado</div>
-          <div class="cash-items">
+          <div class="cash-eyebrow" id="cash-periodo">Cash collected · Abril 2026</div>
+          <div class="cash-number" id="cash-total" data-target="4200" data-suffix="€">0€</div>
+          <div class="cash-period" id="cash-meta">Meta mensual: 5.000€ · 84% completado</div>
+          <div class="cash-items" id="cash-items-list">
             <div class="cash-item">
               <span class="cash-item-name">Nail Studio BCN</span>
               <span class="cash-item-amount">1.200€</span>
@@ -1313,7 +1313,7 @@ table.leads tr:last-child td { border-bottom: none; }
         <div class="card fade-up delay-4">
           <div class="card-title">Actividad</div>
           <div class="card-sub">ÚLTIMAS ACCIONES EN TIEMPO REAL</div>
-          <div class="activity-list">
+          <div class="activity-list" id="activity-list">
             <div class="a-item">
               <div class="a-icon" style="background:rgba(46,125,50,0.1);">💰</div>
               <div class="a-body">
@@ -1362,7 +1362,7 @@ table.leads tr:last-child td { border-bottom: none; }
       <div class="card fade-up delay-3">
         <div class="card-title">Embudo de conversión</div>
         <div class="card-sub">DE LEAD A VENTA CERRADA</div>
-        <div class="funnel-steps">
+        <div class="funnel-steps" id="funnel-steps">
           <div class="f-step">
             <div class="f-label">Leads</div>
             <div class="f-track">
@@ -1405,7 +1405,7 @@ table.leads tr:last-child td { border-bottom: none; }
       <div class="card fade-up delay-4">
         <div class="card-title">Por sector</div>
         <div class="card-sub">DISTRIBUCIÓN DE LEADS</div>
-        <div class="sector-rows">
+        <div class="sector-rows" id="sector-rows">
           <div class="s-row">
             <div class="s-emoji">💇</div>
             <div class="s-info">
@@ -1470,7 +1470,7 @@ table.leads tr:last-child td { border-bottom: none; }
                 <th>Estado</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="leads-tbody">
               <tr>
                 <td>
                   <div class="business-name">Peluquería R&M</div>
@@ -1534,6 +1534,62 @@ table.leads tr:last-child td { border-bottom: none; }
 </div>
 
 <script>
+const WEBHOOK_URL = 'https://veloxiasetter.app.n8n.cloud/webhook/dashboard-data';
+
+const DEFAULT_DATA = {
+  kpis: {
+    leads: 47, leads_delta: '↑ +12',
+    demos: 12, demos_delta: '↑ +3',
+    ventas: 2, ventas_delta: '↑ +1',
+    cash_hoy: 2000, cash_hoy_delta: '↑ +500€'
+  },
+  cash: {
+    total: 4200,
+    periodo: 'Cash collected · Abril 2026',
+    meta_texto: 'Meta mensual: 5.000€ · 84% completado',
+    items: [
+      { nombre: 'Nail Studio BCN', cantidad: '1.200€' },
+      { nombre: 'Barber Kings VLC', cantidad: '800€' },
+      { nombre: 'Mantenimientos', cantidad: '2.200€' }
+    ]
+  },
+  actividad: [
+    { icono: '💰', titulo: 'Venta cerrada — Nail Studio', meta: 'hace 23 min · 1.200€ · Barcelona', color: 'rgba(46,125,50,0.1)' },
+    { icono: '📩', titulo: 'Demo enviada — Carnicería Mago', meta: 'hace 1h · Moratalaz, Madrid', color: 'rgba(21,101,192,0.1)' },
+    { icono: '🎯', titulo: 'Lead ALTA — Peluquería R&M', meta: 'hace 2h · Score 100 · 75 reseñas', color: 'rgba(198,40,40,0.1)' },
+    { icono: '📅', titulo: 'Reunión — Estética Alhambra', meta: 'hace 3h · Mañana 11:00', color: 'rgba(230,81,0,0.1)' },
+    { icono: '🔍', titulo: 'Scraping — 47 oportunidades', meta: 'hace 4h · Madrid · Apify', color: 'rgba(212,175,55,0.15)' }
+  ],
+  funnel: [
+    { label: 'Leads', valor: 47, pct: 100, bg: 'rgba(198,40,40,0.25)', color: '#EF5350' },
+    { label: 'Contactados', valor: 28, pct: 60, bg: 'rgba(230,81,0,0.25)', color: '#FF8A65' },
+    { label: 'Demo enviada', valor: 12, pct: 26, bg: 'rgba(21,101,192,0.25)', color: '#64B5F6' },
+    { label: 'Reunión', valor: 6, pct: 13, bg: 'rgba(212,175,55,0.25)', color: 'var(--gold)' },
+    { label: 'Cerrado ✓', valor: 2, pct: 4, bg: 'rgba(46,125,50,0.25)', color: '#66BB6A' }
+  ],
+  sectores: [
+    { emoji: '💇', nombre: 'Peluquerías', count: 12, pct: 80 },
+    { emoji: '✨', nombre: 'Estética', count: 9, pct: 60 },
+    { emoji: '🍽️', nombre: 'Restaurantes', count: 7, pct: 47 },
+    { emoji: '🦷', nombre: 'Dental', count: 5, pct: 33 },
+    { emoji: '🥩', nombre: 'Carnicerías', count: 4, pct: 27 },
+    { emoji: '🏃', nombre: 'Fisioterapia', count: 3, pct: 20 }
+  ],
+  top_leads: [
+    { nombre: 'Peluquería R&M', loc: 'Villaverde · Sin web', score: 100, prioridad: 'alta' },
+    { nombre: 'Salón Chocolate', loc: 'Madrid · Sin web', score: 100, prioridad: 'alta' },
+    { nombre: 'Carnicería Mago', loc: 'Moratalaz · Sin web', score: 95, prioridad: 'alta' },
+    { nombre: 'Estética Alhambra', loc: 'Latina · Web antigua', score: 90, prioridad: 'media' }
+  ],
+  notificaciones: [
+    { titulo: '🔥 Lead ALTA detectado', cuerpo: 'Peluquería R&M · Score 100/100\nVillaverde, Madrid · Sin web' },
+    { titulo: '💰 Venta cerrada!', cuerpo: 'Barber Kings · Valencia\n800€ cobrados' },
+    { titulo: '📩 Demo enviada', cuerpo: 'Carnicería Mago · Moratalaz\nURL enviada por WhatsApp' },
+    { titulo: '📅 Reunión agendada', cuerpo: 'Estética Alhambra · Latina\nMañana a las 11:00' },
+    { titulo: '🔍 Scraping completado', cuerpo: '47 oportunidades detectadas\nMadrid · Todos los sectores' }
+  ]
+};
+
 // DATETIME
 function updateTime() {
   const now = new Date();
@@ -1556,18 +1612,126 @@ function animateValue(el, target, suffix = '', duration = 1800) {
   }, 16);
 }
 
-setTimeout(() => {
-  document.querySelectorAll('[data-target]').forEach(el => {
-    animateValue(el, +el.dataset.target, el.dataset.suffix || '');
-  });
-}, 600);
+// APPLY DATA TO DOM
+function applyData(data) {
+  const kpiLeads = document.getElementById('kpi-leads');
+  const kpiDemos = document.getElementById('kpi-demos');
+  const kpiVentas = document.getElementById('kpi-ventas');
+  const kpiCash = document.getElementById('kpi-cash-hoy');
+  if (kpiLeads) animateValue(kpiLeads, data.kpis.leads, '');
+  if (kpiDemos) animateValue(kpiDemos, data.kpis.demos, '');
+  if (kpiVentas) animateValue(kpiVentas, data.kpis.ventas, '');
+  if (kpiCash) animateValue(kpiCash, data.kpis.cash_hoy, '€');
+
+  const deltaLeads = document.getElementById('delta-leads');
+  const deltaDemos = document.getElementById('delta-demos');
+  const deltaVentas = document.getElementById('delta-ventas');
+  const deltaCash = document.getElementById('delta-cash-hoy');
+  if (deltaLeads) deltaLeads.textContent = data.kpis.leads_delta;
+  if (deltaDemos) deltaDemos.textContent = data.kpis.demos_delta;
+  if (deltaVentas) deltaVentas.textContent = data.kpis.ventas_delta;
+  if (deltaCash) deltaCash.textContent = data.kpis.cash_hoy_delta;
+
+  const cashTotal = document.getElementById('cash-total');
+  if (cashTotal) animateValue(cashTotal, data.cash.total, '€');
+  const cashPeriodo = document.getElementById('cash-periodo');
+  if (cashPeriodo) cashPeriodo.textContent = data.cash.periodo;
+  const cashMeta = document.getElementById('cash-meta');
+  if (cashMeta) cashMeta.textContent = data.cash.meta_texto;
+  const cashItemsList = document.getElementById('cash-items-list');
+  if (cashItemsList) {
+    cashItemsList.innerHTML = data.cash.items.map(item =>
+      `<div class="cash-item">
+        <span class="cash-item-name">${item.nombre}</span>
+        <span class="cash-item-amount">${item.cantidad}</span>
+      </div>`
+    ).join('');
+  }
+
+  const activityList = document.getElementById('activity-list');
+  if (activityList) {
+    activityList.innerHTML = data.actividad.map(a =>
+      `<div class="a-item">
+        <div class="a-icon" style="background:${a.color};">${a.icono}</div>
+        <div class="a-body">
+          <div class="a-title">${a.titulo}</div>
+          <div class="a-meta">${a.meta}</div>
+        </div>
+      </div>`
+    ).join('');
+  }
+
+  const funnelSteps = document.getElementById('funnel-steps');
+  if (funnelSteps) {
+    funnelSteps.innerHTML = data.funnel.map(f =>
+      `<div class="f-step">
+        <div class="f-label">${f.label}</div>
+        <div class="f-track">
+          <div class="f-fill" style="width:${f.pct}%;background:${f.bg};color:${f.color};">${f.valor}</div>
+        </div>
+        <div class="f-num">${f.valor}</div>
+      </div>`
+    ).join('');
+  }
+
+  const sectorRows = document.getElementById('sector-rows');
+  if (sectorRows) {
+    sectorRows.innerHTML = data.sectores.map(s =>
+      `<div class="s-row">
+        <div class="s-emoji">${s.emoji}</div>
+        <div class="s-info">
+          <div class="s-name">${s.nombre}</div>
+          <div class="s-track"><div class="s-fill" style="width:${s.pct}%;"></div></div>
+        </div>
+        <div class="s-count">${s.count}</div>
+      </div>`
+    ).join('');
+  }
+
+  const leadsTbody = document.getElementById('leads-tbody');
+  if (leadsTbody) {
+    leadsTbody.innerHTML = data.top_leads.map(l => {
+      const badgeClass = l.prioridad === 'alta' ? 'badge-alta' : l.prioridad === 'media' ? 'badge-media' : 'badge-baja';
+      const badgeText = l.prioridad === 'alta' ? 'ALTA' : l.prioridad === 'media' ? 'MEDIA' : 'BAJA';
+      return `<tr>
+        <td>
+          <div class="business-name">${l.nombre}</div>
+          <div class="business-loc">${l.loc}</div>
+        </td>
+        <td>
+          <div class="score-mini"><div class="score-mini-fill" style="width:${l.score}%;"></div></div>
+          <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">${l.score}</div>
+        </td>
+        <td><span class="badge ${badgeClass}">${badgeText}</span></td>
+      </tr>`;
+    }).join('');
+  }
+
+  if (data.notificaciones && data.notificaciones.length) {
+    notifMessages.splice(0, notifMessages.length, ...data.notificaciones.map(n => ({ title: n.titulo, body: n.cuerpo })));
+  }
+}
+
+// FETCH DATA
+async function loadData() {
+  try {
+    const res = await fetch(WEBHOOK_URL);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    applyData(data);
+  } catch (e) {
+    applyData(DEFAULT_DATA);
+  }
+}
+
+setTimeout(loadData, 300);
+setInterval(loadData, 60000);
 
 // SIDEBAR TOGGLE
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
-// CLOSE SIDEBAR ON OUTSIDE CLICK (mobile)
 document.addEventListener('click', (e) => {
   const sidebar = document.getElementById('sidebar');
   const ham = document.getElementById('ham');
@@ -1593,13 +1757,7 @@ document.querySelectorAll('.nav-item').forEach(item => {
 });
 
 // NOTIFICATIONS
-const notifMessages = [
-  { title: '🔥 Lead ALTA detectado', body: 'Peluquería R&M · Score 100/100\nVillaverde, Madrid · Sin web' },
-  { title: '💰 Venta cerrada!', body: 'Barber Kings · Valencia\n800€ cobrados' },
-  { title: '📩 Demo enviada', body: 'Carnicería Mago · Moratalaz\nURL enviada por WhatsApp' },
-  { title: '📅 Reunión agendada', body: 'Estética Alhambra · Latina\nMañana a las 11:00' },
-  { title: '🔍 Scraping completado', body: '47 oportunidades detectadas\nMadrid · Todos los sectores' },
-];
+let notifMessages = DEFAULT_DATA.notificaciones.map(n => ({ title: n.titulo, body: n.cuerpo }));
 
 function showNotif(msg) {
   const notif = document.getElementById('notif');
