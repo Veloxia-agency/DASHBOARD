@@ -36,9 +36,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   background: var(--bg);
   color: var(--cream);
@@ -48,7 +46,6 @@ body {
   overflow-x: hidden;
 }
 
-/* GRAIN TEXTURE */
 body::after {
   content: '';
   position: fixed;
@@ -59,7 +56,6 @@ body::after {
   opacity: 0.5;
 }
 
-/* GOLD GLOW BG */
 body::before {
   content: '';
   position: fixed;
@@ -81,411 +77,230 @@ body::before {
   display: flex;
   flex-direction: column;
   position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  left: 0; top: 0; bottom: 0;
   z-index: 100;
   transition: transform 0.3s ease;
 }
-
 .sidebar-logo {
   padding: 28px 24px 24px;
   border-bottom: 1px solid var(--border2);
 }
-
 .logo-emblem {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 4px;
 }
-
 .logo-v {
-  width: 38px;
-  height: 38px;
+  width: 38px; height: 38px;
   background: linear-gradient(135deg, var(--gold), var(--gold3));
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 700;
-  color: #000;
+  font-size: 22px; font-weight: 700; color: #000;
   box-shadow: 0 4px 20px rgba(212,175,55,0.3);
 }
-
 .logo-name {
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 1px;
+  font-size: 22px; font-weight: 600;
+  color: var(--gold); letter-spacing: 1px;
 }
-
 .logo-tagline {
   font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--muted);
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-size: 9px; color: var(--muted);
+  letter-spacing: 2px; text-transform: uppercase;
   padding-left: 48px;
 }
-
-.sidebar-nav {
-  padding: 20px 12px;
-  flex: 1;
-}
-
-.nav-section {
-  margin-bottom: 24px;
-}
-
+.sidebar-nav { padding: 20px 12px; flex: 1; }
+.nav-section { margin-bottom: 24px; }
 .nav-section-label {
   font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: var(--muted2);
-  text-transform: uppercase;
-  padding: 0 12px;
-  margin-bottom: 8px;
+  font-size: 9px; letter-spacing: 2px;
+  color: var(--muted2); text-transform: uppercase;
+  padding: 0 12px; margin-bottom: 8px;
 }
-
 .nav-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; align-items: center; gap: 10px;
   padding: 10px 12px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.2s;
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 500;
+  font-size: 13px; color: var(--muted); font-weight: 500;
   border: 1px solid transparent;
   margin-bottom: 2px;
+  user-select: none;
 }
-
-.nav-item:hover {
-  background: var(--gold-dim);
-  color: var(--gold);
-  border-color: var(--border);
-}
-
-.nav-item.active {
-  background: var(--gold-dim);
-  color: var(--gold);
-  border-color: var(--border);
-}
-
+.nav-item:hover { background: var(--gold-dim); color: var(--gold); border-color: var(--border); }
+.nav-item.active { background: var(--gold-dim); color: var(--gold); border-color: var(--border); }
 .nav-icon { font-size: 16px; width: 20px; text-align: center; }
-
 .nav-badge {
   margin-left: auto;
-  background: var(--gold);
-  color: #000;
-  font-size: 9px;
-  font-family: var(--font-mono);
-  font-weight: 500;
-  padding: 2px 6px;
-  border-radius: 20px;
+  background: var(--gold); color: #000;
+  font-size: 9px; font-family: var(--font-mono); font-weight: 500;
+  padding: 2px 6px; border-radius: 20px;
 }
-
 .sidebar-footer {
   padding: 16px 12px;
   border-top: 1px solid var(--border2);
 }
-
 .user-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; align-items: center; gap: 10px;
   padding: 10px 12px;
   border-radius: var(--radius-sm);
   background: var(--surface2);
   border: 1px solid var(--border2);
 }
-
 .user-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  width: 32px; height: 32px; border-radius: 50%;
   background: linear-gradient(135deg, var(--gold), var(--gold3));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: #000;
-  font-family: var(--font-display);
-  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: #000;
+  font-family: var(--font-display); flex-shrink: 0;
 }
-
 .user-info { flex: 1; min-width: 0; }
-
 .user-name {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--cream);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 12px; font-weight: 600; color: var(--cream);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-
-.user-plan {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--gold);
-  letter-spacing: 1px;
-}
+.user-plan { font-family: var(--font-mono); font-size: 9px; color: var(--gold); letter-spacing: 1px; }
 
 /* ============ MAIN ============ */
-.main {
-  margin-left: var(--sidebar-w);
-  flex: 1;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+.main { margin-left: var(--sidebar-w); flex: 1; min-height: 100vh; display: flex; flex-direction: column; }
 
-/* TOP BAR */
 .topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   padding: 20px 32px;
   border-bottom: 1px solid var(--border2);
   background: rgba(10,8,0,0.8);
   backdrop-filter: blur(20px);
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  position: sticky; top: 0; z-index: 50;
 }
-
 .topbar-left { display: flex; flex-direction: column; gap: 2px; }
-
 .page-title {
   font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--cream);
+  font-size: 24px; font-weight: 600; color: var(--cream);
   letter-spacing: -0.5px;
 }
-
-.page-sub {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 1px;
-}
-
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
+.page-sub { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: 1px; }
+.topbar-right { display: flex; align-items: center; gap: 12px; }
 .live-pill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  display: flex; align-items: center; gap: 6px;
   background: rgba(212,175,55,0.08);
   border: 1px solid var(--border);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--gold);
-  letter-spacing: 1px;
+  padding: 6px 14px; border-radius: 20px;
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--gold); letter-spacing: 1px;
 }
-
 .live-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--gold);
-  border-radius: 50%;
+  width: 6px; height: 6px;
+  background: var(--gold); border-radius: 50%;
   animation: goldPulse 2s infinite;
 }
-
-.time-display {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted);
-}
-
+.time-display { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
 .btn-primary {
   background: linear-gradient(135deg, var(--gold), var(--gold3));
-  color: #000;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: var(--font-body);
-  cursor: pointer;
+  color: #000; border: none;
+  padding: 8px 18px; border-radius: 8px;
+  font-size: 12px; font-weight: 600;
+  font-family: var(--font-body); cursor: pointer;
   transition: all 0.2s;
   box-shadow: 0 4px 15px rgba(212,175,55,0.2);
 }
-
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(212,175,55,0.3);
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(212,175,55,0.3); }
+.btn-secondary {
+  background: transparent;
+  color: var(--muted); border: 1px solid var(--border);
+  padding: 8px 16px; border-radius: 8px;
+  font-size: 12px; font-weight: 500;
+  font-family: var(--font-body); cursor: pointer;
+  transition: all 0.2s;
 }
-
-/* HAMBURGER */
+.btn-secondary:hover { color: var(--gold); border-color: var(--border); background: var(--gold-dim); }
 .hamburger {
-  display: none;
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--gold);
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  font-size: 18px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
+  display: none; background: none;
+  border: 1px solid var(--border); color: var(--gold);
+  width: 36px; height: 36px; border-radius: 8px;
+  font-size: 18px; cursor: pointer;
+  align-items: center; justify-content: center;
 }
 
 /* ============ CONTENT ============ */
-.content {
-  padding: 28px 32px;
-  flex: 1;
-  position: relative;
-  z-index: 1;
-}
+.content { padding: 28px 32px; flex: 1; position: relative; z-index: 1; }
 
-/* SECTION HEADER */
 .section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   margin-bottom: 16px;
 }
-
 .section-title {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--muted);
-  text-transform: uppercase;
+  font-size: 10px; letter-spacing: 3px;
+  color: var(--muted); text-transform: uppercase;
 }
+
+/* ============ SECTIONS ============ */
+.page-section { display: none; }
+.page-section.active { display: block; }
+
+.section-page-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 24px; gap: 16px;
+}
+.section-page-title {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 600; color: var(--cream);
+  letter-spacing: -0.3px; margin-bottom: 4px;
+}
+.section-page-sub {
+  font-family: var(--font-mono);
+  font-size: 10px; color: var(--muted); letter-spacing: 1px;
+}
+.section-page-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
 
 /* ============ KPI GRID ============ */
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 16px; margin-bottom: 28px;
 }
-
 .kpi-card {
   background: var(--surface);
   border: 1px solid var(--border2);
   border-radius: var(--radius);
-  padding: 22px;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s;
+  padding: 22px; position: relative; overflow: hidden;
+  cursor: pointer; transition: all 0.3s;
 }
-
 .kpi-card::before {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
+  opacity: 0; transition: opacity 0.3s;
 }
-
-.kpi-card:hover {
-  border-color: var(--border);
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(212,175,55,0.1);
-}
-
+.kpi-card:hover { border-color: var(--border); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(212,175,55,0.1); }
 .kpi-card:hover::before { opacity: 1; }
-
 .kpi-card .glow {
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  opacity: 0.05;
-  filter: blur(20px);
+  position: absolute; top: -30px; right: -30px;
+  width: 100px; height: 100px; border-radius: 50%;
+  opacity: 0.05; filter: blur(20px);
 }
+.kpi-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.kpi-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+.kpi-icon { font-size: 18px; opacity: 0.6; }
+.kpi-value { font-family: var(--font-display); font-size: 42px; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 8px; letter-spacing: -1px; }
+.kpi-footer { display: flex; align-items: center; gap: 6px; }
+.kpi-delta { font-family: var(--font-mono); font-size: 10px; padding: 2px 8px; border-radius: 20px; }
+.kpi-delta.up { background: rgba(46,125,50,0.15); color: var(--green-light); }
+.kpi-delta.down { background: rgba(198,40,40,0.15); color: #EF5350; }
+.kpi-period { font-family: var(--font-mono); font-size: 9px; color: var(--muted2); }
 
-.kpi-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.kpi-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-.kpi-icon {
-  font-size: 18px;
-  opacity: 0.6;
-}
-
-.kpi-value {
-  font-family: var(--font-display);
-  font-size: 42px;
-  font-weight: 600;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 8px;
-  letter-spacing: -1px;
-}
-
-.kpi-footer {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.kpi-delta {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  padding: 2px 8px;
-  border-radius: 20px;
-}
-
-.kpi-delta.up {
-  background: rgba(46,125,50,0.15);
-  color: var(--green-light);
-}
-
-.kpi-delta.down {
-  background: rgba(198,40,40,0.15);
-  color: #EF5350;
-}
-
-.kpi-period {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--muted2);
-}
+/* KPI GRID VARIANTS */
+.kpi-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.kpi-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
 /* ============ MAIN GRID ============ */
 .main-grid {
   display: grid;
   grid-template-columns: 1fr 340px;
-  gap: 20px;
-  margin-bottom: 24px;
+  gap: 20px; margin-bottom: 24px;
 }
 
 /* CARDS */
@@ -493,141 +308,58 @@ body::before {
   background: var(--surface);
   border: 1px solid var(--border2);
   border-radius: var(--radius);
-  padding: 24px;
-  overflow: hidden;
+  padding: 24px; overflow: hidden;
 }
-
 .card-title {
   font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 4px;
-  letter-spacing: -0.3px;
+  font-size: 18px; font-weight: 600; color: var(--cream);
+  margin-bottom: 4px; letter-spacing: -0.3px;
 }
-
 .card-sub {
   font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--muted);
-  margin-bottom: 20px;
-  letter-spacing: 1px;
+  font-size: 10px; color: var(--muted);
+  margin-bottom: 20px; letter-spacing: 1px;
 }
 
 /* PIPELINE */
 .pipeline-tabs {
-  display: flex;
-  gap: 4px;
+  display: flex; gap: 4px;
   background: var(--surface2);
-  padding: 4px;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  width: fit-content;
+  padding: 4px; border-radius: 8px;
+  margin-bottom: 16px; width: fit-content;
 }
-
 .p-tab {
-  padding: 5px 14px;
-  border-radius: 6px;
-  font-size: 11px;
-  cursor: pointer;
-  color: var(--muted);
-  border: none;
-  background: none;
-  font-family: var(--font-body);
-  transition: all 0.2s;
+  padding: 5px 14px; border-radius: 6px;
+  font-size: 11px; cursor: pointer;
+  color: var(--muted); border: none; background: none;
+  font-family: var(--font-body); transition: all 0.2s;
 }
-
-.p-tab.active {
-  background: var(--surface3);
-  color: var(--gold);
-  font-weight: 600;
-}
-
-.pipeline-cols {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
-
+.p-tab.active { background: var(--surface3); color: var(--gold); font-weight: 600; }
+.pipeline-cols { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; }
 .p-col { min-width: 160px; flex-shrink: 0; }
-
 .p-col-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 10px;
-  background: var(--surface2);
-  border-radius: 8px 8px 0 0;
-  border-bottom: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px; background: var(--surface2);
+  border-radius: 8px 8px 0 0; border-bottom: 2px solid var(--border);
   margin-bottom: 8px;
 }
-
-.p-col-name {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 1px;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-.p-col-n {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--gold);
-  font-weight: 500;
-}
-
+.p-col-name { font-family: var(--font-mono); font-size: 9px; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; }
+.p-col-n { font-family: var(--font-mono); font-size: 10px; color: var(--gold); font-weight: 500; }
 .p-card {
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
+  background: var(--surface2); border: 1px solid var(--border2);
+  border-radius: 8px; padding: 12px; margin-bottom: 6px;
+  cursor: pointer; transition: all 0.2s;
 }
-
-.p-card:hover {
-  border-color: var(--border);
-  background: var(--surface3);
-}
-
-.p-card-name {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 3px;
-}
-
-.p-card-meta {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.p-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
+.p-card:hover { border-color: var(--border); background: var(--surface3); }
+.p-card-name { font-size: 12px; font-weight: 600; color: var(--cream); margin-bottom: 3px; }
+.p-card-meta { font-family: var(--font-mono); font-size: 9px; color: var(--muted); margin-bottom: 8px; }
+.p-card-footer { display: flex; align-items: center; justify-content: space-between; }
 .score-chip {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  background: var(--gold-dim);
-  color: var(--gold);
-  padding: 2px 7px;
-  border-radius: 4px;
-  border: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: 9px;
+  background: var(--gold-dim); color: var(--gold);
+  padding: 2px 7px; border-radius: 4px; border: 1px solid var(--border);
 }
-
-.priority-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
+.priority-dot { width: 6px; height: 6px; border-radius: 50%; }
 
 /* RIGHT PANEL */
 .right-panel { display: flex; flex-direction: column; gap: 16px; }
@@ -637,321 +369,200 @@ body::before {
   background: linear-gradient(135deg, #1C1500, #0F0A00);
   border: 1px solid rgba(212,175,55,0.25);
   border-radius: var(--radius);
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
+  padding: 24px; position: relative; overflow: hidden;
 }
-
 .cash-hero::before {
   content: '';
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 150px;
-  height: 150px;
+  position: absolute; top: -50px; right: -50px;
+  width: 150px; height: 150px;
   background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%);
 }
-
-.cash-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: var(--gold);
-  opacity: 0.6;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.cash-number {
-  font-family: var(--font-display);
-  font-size: 52px;
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-  letter-spacing: -2px;
-  margin-bottom: 4px;
-}
-
-.cash-period {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-
+.cash-eyebrow { font-family: var(--font-mono); font-size: 9px; letter-spacing: 3px; color: var(--gold); opacity: 0.6; text-transform: uppercase; margin-bottom: 8px; }
+.cash-number { font-family: var(--font-display); font-size: 52px; font-weight: 300; color: var(--gold); line-height: 1; letter-spacing: -2px; margin-bottom: 4px; }
+.cash-period { font-family: var(--font-mono); font-size: 10px; color: var(--muted); margin-bottom: 20px; }
 .cash-items { display: flex; flex-direction: column; gap: 10px; }
-
 .cash-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-top: 1px solid rgba(212,175,55,0.08);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; border-top: 1px solid rgba(212,175,55,0.08);
 }
+.cash-item-name { font-size: 11px; color: var(--muted); font-family: var(--font-mono); }
+.cash-item-amount { font-family: var(--font-display); font-size: 16px; color: var(--gold2); font-weight: 600; }
 
-.cash-item-name {
-  font-size: 11px;
-  color: var(--muted);
-  font-family: var(--font-mono);
-}
-
-.cash-item-amount {
-  font-family: var(--font-display);
-  font-size: 16px;
-  color: var(--gold2);
-  font-weight: 600;
-}
-
-/* ACTIVITY */
+/* ACTIVITY (dashboard compact) */
 .activity-list { display: flex; flex-direction: column; }
-
 .a-item {
-  display: flex;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border2);
+  display: flex; gap: 12px;
+  padding: 12px 0; border-bottom: 1px solid var(--border2);
 }
-
 .a-item:last-child { border-bottom: none; }
-
 .a-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  flex-shrink: 0;
-  border: 1px solid var(--border2);
+  width: 34px; height: 34px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; flex-shrink: 0; border: 1px solid var(--border2);
 }
-
 .a-body { flex: 1; }
-
-.a-title {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 2px;
-}
-
-.a-meta {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--muted);
-  letter-spacing: 0.5px;
-}
+.a-title { font-size: 12px; font-weight: 600; color: var(--cream); margin-bottom: 2px; }
+.a-meta { font-family: var(--font-mono); font-size: 9px; color: var(--muted); letter-spacing: 0.5px; }
 
 /* ============ BOTTOM GRID ============ */
 .bottom-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 24px;
+  gap: 20px; margin-bottom: 24px;
 }
 
 /* FUNNEL */
 .funnel-steps { display: flex; flex-direction: column; gap: 10px; }
-
 .f-step { display: flex; align-items: center; gap: 10px; }
-
-.f-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--muted);
-  width: 90px;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.f-track {
-  flex: 1;
-  height: 28px;
-  background: var(--surface2);
-  border-radius: 6px;
-  overflow: hidden;
-  position: relative;
-}
-
+.f-label { font-family: var(--font-mono); font-size: 9px; color: var(--muted); width: 90px; text-align: right; flex-shrink: 0; }
+.f-track { flex: 1; height: 28px; background: var(--surface2); border-radius: 6px; overflow: hidden; position: relative; }
 .f-fill {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  border-radius: 6px;
+  height: 100%; display: flex; align-items: center;
+  padding-left: 10px; font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500; border-radius: 6px;
   transition: width 2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
-.f-num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--gold);
-  width: 24px;
-  text-align: right;
-}
+.f-num { font-family: var(--font-mono); font-size: 11px; color: var(--gold); width: 24px; text-align: right; }
 
 /* SECTORS */
 .sector-rows { display: flex; flex-direction: column; gap: 12px; }
-
 .s-row { display: flex; align-items: center; gap: 10px; }
-
 .s-emoji { font-size: 16px; width: 24px; text-align: center; }
-
 .s-info { flex: 1; }
+.s-name { font-size: 12px; font-weight: 500; color: var(--cream); margin-bottom: 4px; }
+.s-track { height: 4px; background: var(--surface3); border-radius: 2px; overflow: hidden; }
+.s-fill { height: 100%; background: linear-gradient(90deg, var(--gold3), var(--gold)); border-radius: 2px; transition: width 2s ease; }
+.s-count { font-family: var(--font-mono); font-size: 10px; color: var(--muted); width: 20px; text-align: right; }
 
-.s-name {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--cream);
-  margin-bottom: 4px;
-}
-
-.s-track {
-  height: 4px;
-  background: var(--surface3);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.s-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--gold3), var(--gold));
-  border-radius: 2px;
-  transition: width 2s ease;
-}
-
-.s-count {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--muted);
-  width: 20px;
-  text-align: right;
-}
-
-/* LEADS TABLE */
+/* LEADS TABLE (dashboard mini) */
 .leads-wrap { overflow-x: auto; }
-
-table.leads {
-  width: 100%;
-  border-collapse: collapse;
-}
-
+table.leads { width: 100%; border-collapse: collapse; }
 table.leads th {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: var(--muted2);
-  text-transform: uppercase;
-  text-align: left;
-  padding: 0 0 14px 0;
-  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px;
+  color: var(--muted2); text-transform: uppercase; text-align: left;
+  padding: 0 0 14px 0; border-bottom: 1px solid var(--border);
 }
-
 table.leads td {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border2);
-  font-size: 12px;
-  vertical-align: middle;
+  padding: 12px 0; border-bottom: 1px solid var(--border2);
+  font-size: 12px; vertical-align: middle;
 }
-
 table.leads tr:last-child td { border-bottom: none; }
+.business-name { font-weight: 600; color: var(--cream); margin-bottom: 2px; }
+.business-loc { font-family: var(--font-mono); font-size: 9px; color: var(--muted); }
 
-.business-name {
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 2px;
-}
-
-.business-loc {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--muted);
-}
-
+/* BADGES */
 .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 3px 9px;
-  border-radius: 20px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 9px; border-radius: 20px;
+  font-family: var(--font-mono); font-size: 9px;
+  font-weight: 500; letter-spacing: 0.5px;
+}
+.badge-alta    { background: rgba(198,40,40,0.12);   color: #EF5350;  border: 1px solid rgba(198,40,40,0.2); }
+.badge-media   { background: rgba(230,81,0,0.12);    color: #FF8A65;  border: 1px solid rgba(230,81,0,0.2); }
+.badge-baja    { background: rgba(46,125,50,0.12);   color: #66BB6A;  border: 1px solid rgba(46,125,50,0.2); }
+.badge-nuevo      { background: rgba(21,101,192,0.12);  color: #64B5F6;  border: 1px solid rgba(21,101,192,0.2); }
+.badge-contactado { background: rgba(230,81,0,0.12);    color: #FF8A65;  border: 1px solid rgba(230,81,0,0.2); }
+.badge-demo       { background: rgba(123,31,162,0.12);  color: #CE93D8;  border: 1px solid rgba(123,31,162,0.2); }
+.badge-reunion    { background: rgba(212,175,55,0.12);  color: var(--gold); border: 1px solid rgba(212,175,55,0.2); }
+.badge-cerrado    { background: rgba(46,125,50,0.12);   color: #66BB6A;  border: 1px solid rgba(46,125,50,0.2); }
+.badge-cobrado    { background: rgba(46,125,50,0.12);   color: #66BB6A;  border: 1px solid rgba(46,125,50,0.2); }
+.badge-pendiente  { background: rgba(230,81,0,0.12);    color: #FF8A65;  border: 1px solid rgba(230,81,0,0.2); }
+.badge-activo     { background: rgba(46,125,50,0.12);   color: #66BB6A;  border: 1px solid rgba(46,125,50,0.2); }
+.badge-vista      { background: rgba(21,101,192,0.12);  color: #64B5F6;  border: 1px solid rgba(21,101,192,0.2); }
+.badge-interesado { background: rgba(212,175,55,0.12);  color: var(--gold); border: 1px solid rgba(212,175,55,0.2); }
+
+.score-mini { width: 52px; height: 3px; background: var(--surface3); border-radius: 2px; overflow: hidden; }
+.score-mini-fill { height: 100%; background: linear-gradient(90deg, var(--gold3), var(--gold)); border-radius: 2px; }
+
+/* ============ FILTER BAR ============ */
+.filter-bar {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.filter-chip {
+  padding: 5px 14px; border-radius: 20px;
+  font-family: var(--font-mono); font-size: 10px;
+  cursor: pointer; border: 1px solid var(--border2);
+  background: transparent; color: var(--muted);
+  transition: all 0.2s; letter-spacing: 0.5px;
+}
+.filter-chip:hover { background: var(--gold-dim); color: var(--gold2); border-color: var(--border); }
+.filter-chip.active { background: var(--gold-dim); color: var(--gold); border-color: var(--border); font-weight: 600; }
+
+/* ============ FULL TABLE ============ */
+.table-wrap { overflow-x: auto; }
+table.full-table { width: 100%; border-collapse: collapse; }
+table.full-table th {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px;
+  color: var(--muted2); text-transform: uppercase; text-align: left;
+  padding: 0 20px 14px 0; border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+table.full-table td {
+  padding: 13px 20px 13px 0;
+  border-bottom: 1px solid var(--border2);
+  font-size: 12px; vertical-align: middle;
+}
+table.full-table tr:last-child td { border-bottom: none; }
+table.full-table tbody tr { transition: background 0.15s; }
+table.full-table tbody tr:hover td { background: rgba(212,175,55,0.02); }
+.row-num { font-family: var(--font-mono); font-size: 10px; color: var(--muted2); }
+.demo-url {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--gold); text-decoration: none; opacity: 0.8; transition: opacity 0.2s;
+}
+.demo-url:hover { opacity: 1; }
+.table-info { padding: 12px 0 0; font-family: var(--font-mono); font-size: 10px; color: var(--muted2); }
+.empty-state {
+  text-align: center; padding: 48px 24px;
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--muted2); letter-spacing: 1px;
 }
 
-.badge-alta { background: rgba(198,40,40,0.12); color: #EF5350; border: 1px solid rgba(198,40,40,0.2); }
-.badge-media { background: rgba(230,81,0,0.12); color: #FF8A65; border: 1px solid rgba(230,81,0,0.2); }
-.badge-baja { background: rgba(46,125,50,0.12); color: #66BB6A; border: 1px solid rgba(46,125,50,0.2); }
-
-.score-mini {
-  width: 52px;
-  height: 3px;
-  background: var(--surface3);
-  border-radius: 2px;
-  overflow: hidden;
+/* ============ ACTIVITY FULL FEED ============ */
+.af-item {
+  display: flex; gap: 16px;
+  padding: 16px 0; border-bottom: 1px solid var(--border2);
+  align-items: flex-start;
 }
-
-.score-mini-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--gold3), var(--gold));
-  border-radius: 2px;
+.af-item:last-child { border-bottom: none; }
+.af-icon {
+  width: 42px; height: 42px; border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0; border: 1px solid var(--border2);
 }
+.af-body { flex: 1; }
+.af-title { font-size: 13px; font-weight: 600; color: var(--cream); margin-bottom: 4px; }
+.af-meta { font-family: var(--font-mono); font-size: 10px; color: var(--muted); }
+.af-time { font-family: var(--font-mono); font-size: 10px; color: var(--muted2); white-space: nowrap; flex-shrink: 0; }
 
 /* ============ NOTIFICATION ============ */
 .notif-wrap {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-end;
+  position: fixed; bottom: 24px; right: 24px;
+  z-index: 1000; display: flex; flex-direction: column;
+  gap: 10px; align-items: flex-end;
 }
-
 .notif {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--gold);
-  border-radius: 12px;
-  padding: 14px 18px;
-  max-width: 280px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--gold); border-radius: 12px;
+  padding: 14px 18px; max-width: 280px;
   transform: translateX(320px);
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
-
 .notif.show { transform: translateX(0); }
-
-.notif-title {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gold);
-  margin-bottom: 3px;
-}
-
-.notif-body {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--muted);
-  line-height: 1.5;
-}
+.notif-title { font-size: 12px; font-weight: 600; color: var(--gold); margin-bottom: 3px; }
+.notif-body { font-family: var(--font-mono); font-size: 10px; color: var(--muted); line-height: 1.5; white-space: pre-line; }
 
 /* ============ ANIMATIONS ============ */
 @keyframes goldPulse {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(212,175,55,0.4); }
   50% { opacity: 0.5; box-shadow: 0 0 0 4px rgba(212,175,55,0); }
 }
-
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 .fade-up { animation: fadeUp 0.5s ease forwards; opacity: 0; }
 .delay-1 { animation-delay: 0.05s; }
 .delay-2 { animation-delay: 0.1s; }
@@ -963,29 +574,28 @@ table.leads tr:last-child td { border-bottom: none; }
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1100px) {
   .bottom-grid { grid-template-columns: 1fr 1fr; }
-  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid, .kpi-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid-3 { grid-template-columns: repeat(3, 1fr); }
 }
-
 @media (max-width: 900px) {
   :root { --sidebar-w: 0px; }
-  .sidebar {
-    transform: translateX(-240px);
-    width: 240px;
-  }
+  .sidebar { transform: translateX(-240px); width: 240px; }
   .sidebar.open { transform: translateX(0); }
   .main { margin-left: 0; }
   .hamburger { display: flex; }
   .main-grid { grid-template-columns: 1fr; }
   .content { padding: 20px 16px; }
   .topbar { padding: 16px 20px; }
+  .kpi-grid-3 { grid-template-columns: 1fr 1fr; }
 }
-
 @media (max-width: 600px) {
-  .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .kpi-grid, .kpi-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .kpi-grid-3 { grid-template-columns: 1fr; }
   .kpi-value { font-size: 32px; }
   .bottom-grid { grid-template-columns: 1fr; }
   .cash-number { font-size: 40px; }
   .page-title { font-size: 20px; }
+  .section-page-header { flex-direction: column; }
 }
 
 /* SCROLLBAR */
@@ -1009,23 +619,27 @@ table.leads tr:last-child td { border-bottom: none; }
   <nav class="sidebar-nav">
     <div class="nav-section">
       <div class="nav-section-label">Principal</div>
-      <div class="nav-item active">
+      <div class="nav-item active" data-section="dashboard">
         <span class="nav-icon">◆</span>
         Dashboard
       </div>
-      <div class="nav-item">
+      <div class="nav-item" data-section="leads">
         <span class="nav-icon">◎</span>
         Leads
-        <span class="nav-badge">47</span>
+        <span class="nav-badge" id="nav-badge-leads">47</span>
       </div>
-      <div class="nav-item">
+      <div class="nav-item" data-section="demos">
         <span class="nav-icon">▣</span>
         Demos
-        <span class="nav-badge">12</span>
+        <span class="nav-badge" id="nav-badge-demos">12</span>
       </div>
-      <div class="nav-item">
+      <div class="nav-item" data-section="clientes">
         <span class="nav-icon">◈</span>
         Clientes
+      </div>
+      <div class="nav-item" data-section="actividad">
+        <span class="nav-icon">◬</span>
+        Actividad
       </div>
     </div>
 
@@ -1047,7 +661,7 @@ table.leads tr:last-child td { border-bottom: none; }
 
     <div class="nav-section">
       <div class="nav-section-label">Finanzas</div>
-      <div class="nav-item">
+      <div class="nav-item" data-section="ingresos">
         <span class="nav-icon">◐</span>
         Ingresos
       </div>
@@ -1085,7 +699,7 @@ table.leads tr:last-child td { border-bottom: none; }
     <div style="display:flex;align-items:center;gap:16px;">
       <button class="hamburger" id="ham" onclick="toggleSidebar()">☰</button>
       <div class="topbar-left">
-        <div class="page-title">Panel de Operaciones</div>
+        <div class="page-title" id="page-title">Panel de Operaciones</div>
         <div class="page-sub" id="datetime">Cargando...</div>
       </div>
     </div>
@@ -1094,433 +708,715 @@ table.leads tr:last-child td { border-bottom: none; }
         <div class="live-dot"></div>
         EN VIVO
       </div>
-      <button class="btn-primary" onclick="runScraping()">+ Nuevo scraping</button>
+      <button class="btn-primary" id="topbar-btn" onclick="runScraping()">+ Nuevo scraping</button>
     </div>
   </div>
 
   <!-- CONTENT -->
   <div class="content">
 
-    <!-- KPIs -->
-    <div class="section-header">
-      <div class="section-title">Métricas del día</div>
-      <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted);">Actualizado hace 2 min</div>
-    </div>
+    <!-- ======== SECTION: DASHBOARD ======== -->
+    <div id="section-dashboard" class="page-section active">
 
-    <div class="kpi-grid">
-      <div class="kpi-card fade-up delay-1">
-        <div class="glow" style="background:var(--gold);"></div>
-        <div class="kpi-header">
-          <div class="kpi-label">Leads totales</div>
-          <div class="kpi-icon">🎯</div>
-        </div>
-        <div class="kpi-value" id="kpi-leads" data-target="47" data-suffix="">0</div>
-        <div class="kpi-footer">
-          <span class="kpi-delta up" id="delta-leads">↑ +12</span>
-          <span class="kpi-period">vs ayer</span>
-        </div>
+      <div class="section-header">
+        <div class="section-title">Métricas del día</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted);" id="last-update">Actualizando...</div>
       </div>
 
-      <div class="kpi-card fade-up delay-2">
-        <div class="glow" style="background:#1565C0;"></div>
-        <div class="kpi-header">
-          <div class="kpi-label">Demos enviadas</div>
-          <div class="kpi-icon">📩</div>
-        </div>
-        <div class="kpi-value" id="kpi-demos" data-target="12" data-suffix="">0</div>
-        <div class="kpi-footer">
-          <span class="kpi-delta up" id="delta-demos">↑ +3</span>
-          <span class="kpi-period">vs ayer</span>
-        </div>
-      </div>
-
-      <div class="kpi-card fade-up delay-3">
-        <div class="glow" style="background:#2E7D32;"></div>
-        <div class="kpi-header">
-          <div class="kpi-label">Ventas cerradas</div>
-          <div class="kpi-icon">💰</div>
-        </div>
-        <div class="kpi-value" id="kpi-ventas" data-target="2" data-suffix="">0</div>
-        <div class="kpi-footer">
-          <span class="kpi-delta up" id="delta-ventas">↑ +1</span>
-          <span class="kpi-period">vs ayer</span>
-        </div>
-      </div>
-
-      <div class="kpi-card fade-up delay-4" style="background:linear-gradient(135deg,#1C1500,#0F0A00);border-color:rgba(212,175,55,0.2);">
-        <div class="glow" style="background:var(--gold);opacity:0.1;"></div>
-        <div class="kpi-header">
-          <div class="kpi-label">Cash hoy</div>
-          <div class="kpi-icon">✦</div>
-        </div>
-        <div class="kpi-value" id="kpi-cash-hoy" data-target="2000" data-suffix="€">0</div>
-        <div class="kpi-footer">
-          <span class="kpi-delta up" id="delta-cash-hoy">↑ +500€</span>
-          <span class="kpi-period">vs ayer</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- MAIN GRID -->
-    <div class="main-grid">
-
-      <!-- PIPELINE -->
-      <div class="card fade-up delay-2">
-        <div class="card-title">Pipeline de ventas</div>
-        <div class="card-sub">ESTADO ACTUAL · 20 LEADS ACTIVOS</div>
-
-        <div class="pipeline-tabs">
-          <button class="p-tab active">Todos</button>
-          <button class="p-tab">Alta prioridad</button>
-          <button class="p-tab">Esta semana</button>
-        </div>
-
-        <div class="pipeline-cols">
-          <div class="p-col">
-            <div class="p-col-header">
-              <div class="p-col-name">Nuevo</div>
-              <div class="p-col-n">8</div>
-            </div>
-            <div class="p-card">
-              <div class="p-card-name">Peluquería R&M</div>
-              <div class="p-card-meta">Villaverde · Sin web</div>
-              <div class="p-card-footer">
-                <span class="score-chip">100/100</span>
-                <div class="priority-dot" style="background:#EF5350;"></div>
-              </div>
-            </div>
-            <div class="p-card">
-              <div class="p-card-name">Salón Chocolate</div>
-              <div class="p-card-meta">Madrid · Sin web</div>
-              <div class="p-card-footer">
-                <span class="score-chip">100/100</span>
-                <div class="priority-dot" style="background:#EF5350;"></div>
-              </div>
-            </div>
-            <div class="p-card">
-              <div class="p-card-name">Fisio Vallecas</div>
-              <div class="p-card-meta">Vallecas · Sin web</div>
-              <div class="p-card-footer">
-                <span class="score-chip">85/100</span>
-                <div class="priority-dot" style="background:#FF8A65;"></div>
-              </div>
-            </div>
+      <div class="kpi-grid">
+        <div class="kpi-card fade-up delay-1">
+          <div class="glow" style="background:var(--gold);"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">Leads totales</div>
+            <div class="kpi-icon">🎯</div>
           </div>
-
-          <div class="p-col">
-            <div class="p-col-header">
-              <div class="p-col-name">Contactado</div>
-              <div class="p-col-n">5</div>
-            </div>
-            <div class="p-card">
-              <div class="p-card-name">Carnicería Mago</div>
-              <div class="p-card-meta">Moratalaz · Sin web</div>
-              <div class="p-card-footer">
-                <span class="score-chip">95/100</span>
-                <div class="priority-dot" style="background:#EF5350;"></div>
-              </div>
-            </div>
-            <div class="p-card">
-              <div class="p-card-name">Dental Carabanchel</div>
-              <div class="p-card-meta">Carabanchel · Web antigua</div>
-              <div class="p-card-footer">
-                <span class="score-chip">80/100</span>
-                <div class="priority-dot" style="background:#FF8A65;"></div>
-              </div>
-            </div>
+          <div class="kpi-value" id="kpi-leads">0</div>
+          <div class="kpi-footer">
+            <span class="kpi-delta up" id="delta-leads">↑ +12</span>
+            <span class="kpi-period">vs ayer</span>
           </div>
+        </div>
 
-          <div class="p-col">
-            <div class="p-col-header">
-              <div class="p-col-name">Demo enviada</div>
-              <div class="p-col-n">3</div>
-            </div>
-            <div class="p-card">
-              <div class="p-card-name">Restaurante La Mar</div>
-              <div class="p-card-meta">Retiro · Web mala</div>
-              <div class="p-card-footer">
-                <span class="score-chip">75/100</span>
-                <div class="priority-dot" style="background:#FF8A65;"></div>
-              </div>
-            </div>
+        <div class="kpi-card fade-up delay-2">
+          <div class="glow" style="background:#1565C0;"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">Demos enviadas</div>
+            <div class="kpi-icon">📩</div>
           </div>
-
-          <div class="p-col">
-            <div class="p-col-header">
-              <div class="p-col-name">Reunión</div>
-              <div class="p-col-n">2</div>
-            </div>
-            <div class="p-card">
-              <div class="p-card-name">Estética Alhambra</div>
-              <div class="p-card-meta">Latina · Mañana 11:00</div>
-              <div class="p-card-footer">
-                <span class="score-chip">90/100</span>
-                <div class="priority-dot" style="background:#EF5350;"></div>
-              </div>
-            </div>
+          <div class="kpi-value" id="kpi-demos">0</div>
+          <div class="kpi-footer">
+            <span class="kpi-delta up" id="delta-demos">↑ +3</span>
+            <span class="kpi-period">vs ayer</span>
           </div>
+        </div>
 
-          <div class="p-col">
-            <div class="p-col-header">
-              <div class="p-col-name">✓ Cerrado</div>
-              <div class="p-col-n" style="color:#66BB6A;">2</div>
-            </div>
-            <div class="p-card" style="border-color:rgba(46,125,50,0.2);">
-              <div class="p-card-name">Nail Studio BCN</div>
-              <div class="p-card-meta">Barcelona · 1.200€</div>
-              <div class="p-card-footer">
-                <span class="score-chip" style="background:rgba(46,125,50,0.12);color:#66BB6A;border-color:rgba(46,125,50,0.2);">Cobrado</span>
-                <div class="priority-dot" style="background:#66BB6A;"></div>
-              </div>
-            </div>
-            <div class="p-card" style="border-color:rgba(46,125,50,0.2);">
-              <div class="p-card-name">Barber Kings</div>
-              <div class="p-card-meta">Valencia · 800€</div>
-              <div class="p-card-footer">
-                <span class="score-chip" style="background:rgba(46,125,50,0.12);color:#66BB6A;border-color:rgba(46,125,50,0.2);">Cobrado</span>
-                <div class="priority-dot" style="background:#66BB6A;"></div>
-              </div>
-            </div>
+        <div class="kpi-card fade-up delay-3">
+          <div class="glow" style="background:#2E7D32;"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">Ventas cerradas</div>
+            <div class="kpi-icon">💰</div>
+          </div>
+          <div class="kpi-value" id="kpi-ventas">0</div>
+          <div class="kpi-footer">
+            <span class="kpi-delta up" id="delta-ventas">↑ +1</span>
+            <span class="kpi-period">vs ayer</span>
+          </div>
+        </div>
+
+        <div class="kpi-card fade-up delay-4" style="background:linear-gradient(135deg,#1C1500,#0F0A00);border-color:rgba(212,175,55,0.2);">
+          <div class="glow" style="background:var(--gold);opacity:0.1;"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">Cash hoy</div>
+            <div class="kpi-icon">✦</div>
+          </div>
+          <div class="kpi-value" id="kpi-cash-hoy">0</div>
+          <div class="kpi-footer">
+            <span class="kpi-delta up" id="delta-cash-hoy">↑ +500€</span>
+            <span class="kpi-period">vs ayer</span>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT PANEL -->
-      <div class="right-panel">
+      <!-- MAIN GRID -->
+      <div class="main-grid">
 
-        <!-- CASH -->
-        <div class="cash-hero fade-up delay-3">
-          <div class="cash-eyebrow" id="cash-periodo">Cash collected · Abril 2026</div>
-          <div class="cash-number" id="cash-total" data-target="4200" data-suffix="€">0€</div>
-          <div class="cash-period" id="cash-meta">Meta mensual: 5.000€ · 84% completado</div>
-          <div class="cash-items" id="cash-items-list">
-            <div class="cash-item">
-              <span class="cash-item-name">Nail Studio BCN</span>
-              <span class="cash-item-amount">1.200€</span>
+        <!-- PIPELINE -->
+        <div class="card fade-up delay-2">
+          <div class="card-title">Pipeline de ventas</div>
+          <div class="card-sub" id="pipeline-sub">ESTADO ACTUAL · LEADS ACTIVOS</div>
+
+          <div class="pipeline-tabs">
+            <button class="p-tab active">Todos</button>
+            <button class="p-tab">Alta prioridad</button>
+            <button class="p-tab">Esta semana</button>
+          </div>
+
+          <div class="pipeline-cols" id="pipeline-cols">
+            <div class="p-col">
+              <div class="p-col-header">
+                <div class="p-col-name">Nuevo</div>
+                <div class="p-col-n">8</div>
+              </div>
+              <div class="p-card">
+                <div class="p-card-name">Peluquería R&amp;M</div>
+                <div class="p-card-meta">Villaverde · Sin web</div>
+                <div class="p-card-footer">
+                  <span class="score-chip">100/100</span>
+                  <div class="priority-dot" style="background:#EF5350;"></div>
+                </div>
+              </div>
+              <div class="p-card">
+                <div class="p-card-name">Salón Chocolate</div>
+                <div class="p-card-meta">Madrid · Sin web</div>
+                <div class="p-card-footer">
+                  <span class="score-chip">100/100</span>
+                  <div class="priority-dot" style="background:#EF5350;"></div>
+                </div>
+              </div>
+              <div class="p-card">
+                <div class="p-card-name">Fisio Vallecas</div>
+                <div class="p-card-meta">Vallecas · Sin web</div>
+                <div class="p-card-footer">
+                  <span class="score-chip">85/100</span>
+                  <div class="priority-dot" style="background:#FF8A65;"></div>
+                </div>
+              </div>
             </div>
-            <div class="cash-item">
-              <span class="cash-item-name">Barber Kings VLC</span>
-              <span class="cash-item-amount">800€</span>
+
+            <div class="p-col">
+              <div class="p-col-header">
+                <div class="p-col-name">Contactado</div>
+                <div class="p-col-n">5</div>
+              </div>
+              <div class="p-card">
+                <div class="p-card-name">Carnicería Mago</div>
+                <div class="p-card-meta">Moratalaz · Sin web</div>
+                <div class="p-card-footer">
+                  <span class="score-chip">95/100</span>
+                  <div class="priority-dot" style="background:#EF5350;"></div>
+                </div>
+              </div>
+              <div class="p-card">
+                <div class="p-card-name">Dental Carabanchel</div>
+                <div class="p-card-meta">Carabanchel · Web antigua</div>
+                <div class="p-card-footer">
+                  <span class="score-chip">80/100</span>
+                  <div class="priority-dot" style="background:#FF8A65;"></div>
+                </div>
+              </div>
             </div>
-            <div class="cash-item">
-              <span class="cash-item-name">Mantenimientos</span>
-              <span class="cash-item-amount">2.200€</span>
+
+            <div class="p-col">
+              <div class="p-col-header">
+                <div class="p-col-name">Demo enviada</div>
+                <div class="p-col-n">3</div>
+              </div>
+              <div class="p-card">
+                <div class="p-card-name">Restaurante La Mar</div>
+                <div class="p-card-meta">Retiro · Web mala</div>
+                <div class="p-card-footer">
+                  <span class="score-chip">75/100</span>
+                  <div class="priority-dot" style="background:#FF8A65;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-col">
+              <div class="p-col-header">
+                <div class="p-col-name">Reunión</div>
+                <div class="p-col-n">2</div>
+              </div>
+              <div class="p-card">
+                <div class="p-card-name">Estética Alhambra</div>
+                <div class="p-card-meta">Latina · Mañana 11:00</div>
+                <div class="p-card-footer">
+                  <span class="score-chip">90/100</span>
+                  <div class="priority-dot" style="background:#EF5350;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-col">
+              <div class="p-col-header">
+                <div class="p-col-name">✓ Cerrado</div>
+                <div class="p-col-n" style="color:#66BB6A;">2</div>
+              </div>
+              <div class="p-card" style="border-color:rgba(46,125,50,0.2);">
+                <div class="p-card-name">Nail Studio BCN</div>
+                <div class="p-card-meta">Barcelona · 1.200€</div>
+                <div class="p-card-footer">
+                  <span class="score-chip" style="background:rgba(46,125,50,0.12);color:#66BB6A;border-color:rgba(46,125,50,0.2);">Cobrado</span>
+                  <div class="priority-dot" style="background:#66BB6A;"></div>
+                </div>
+              </div>
+              <div class="p-card" style="border-color:rgba(46,125,50,0.2);">
+                <div class="p-card-name">Barber Kings</div>
+                <div class="p-card-meta">Valencia · 800€</div>
+                <div class="p-card-footer">
+                  <span class="score-chip" style="background:rgba(46,125,50,0.12);color:#66BB6A;border-color:rgba(46,125,50,0.2);">Cobrado</span>
+                  <div class="priority-dot" style="background:#66BB6A;"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- ACTIVITY -->
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+
+          <!-- CASH -->
+          <div class="cash-hero fade-up delay-3">
+            <div class="cash-eyebrow" id="cash-periodo">Cash collected · Mayo 2026</div>
+            <div class="cash-number" id="cash-total">0€</div>
+            <div class="cash-period" id="cash-meta">Meta mensual: 5.000€</div>
+            <div class="cash-items" id="cash-items-list">
+              <div class="cash-item">
+                <span class="cash-item-name">Nail Studio BCN</span>
+                <span class="cash-item-amount">1.200€</span>
+              </div>
+              <div class="cash-item">
+                <span class="cash-item-name">Barber Kings VLC</span>
+                <span class="cash-item-amount">800€</span>
+              </div>
+              <div class="cash-item">
+                <span class="cash-item-name">Mantenimientos</span>
+                <span class="cash-item-amount">700€</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIVITY COMPACT -->
+          <div class="card fade-up delay-4">
+            <div class="card-title">Actividad</div>
+            <div class="card-sub">ÚLTIMAS ACCIONES EN TIEMPO REAL</div>
+            <div class="activity-list" id="activity-list">
+              <div class="a-item">
+                <div class="a-icon" style="background:rgba(46,125,50,0.1);">💰</div>
+                <div class="a-body">
+                  <div class="a-title">Venta cerrada — Nail Studio</div>
+                  <div class="a-meta">hace 23 min · 1.200€</div>
+                </div>
+              </div>
+              <div class="a-item">
+                <div class="a-icon" style="background:rgba(21,101,192,0.1);">📩</div>
+                <div class="a-body">
+                  <div class="a-title">Demo enviada — Carnicería Mago</div>
+                  <div class="a-meta">hace 1h · Moratalaz</div>
+                </div>
+              </div>
+              <div class="a-item">
+                <div class="a-icon" style="background:rgba(198,40,40,0.1);">🎯</div>
+                <div class="a-body">
+                  <div class="a-title">Lead ALTA — Peluquería R&amp;M</div>
+                  <div class="a-meta">hace 2h · Score 100</div>
+                </div>
+              </div>
+              <div class="a-item">
+                <div class="a-icon" style="background:rgba(230,81,0,0.1);">📅</div>
+                <div class="a-body">
+                  <div class="a-title">Reunión — Estética Alhambra</div>
+                  <div class="a-meta">hace 3h · Mañana 11:00</div>
+                </div>
+              </div>
+              <div class="a-item">
+                <div class="a-icon" style="background:var(--gold-dim);">🔍</div>
+                <div class="a-body">
+                  <div class="a-title">Scraping — 47 oportunidades</div>
+                  <div class="a-meta">hace 4h · Madrid · Apify</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BOTTOM GRID -->
+      <div class="bottom-grid">
+
+        <!-- FUNNEL -->
+        <div class="card fade-up delay-3">
+          <div class="card-title">Embudo de conversión</div>
+          <div class="card-sub">DE LEAD A VENTA CERRADA</div>
+          <div class="funnel-steps" id="funnel-steps">
+            <div class="f-step">
+              <div class="f-label">Leads</div>
+              <div class="f-track"><div class="f-fill" style="width:100%;background:rgba(198,40,40,0.25);color:#EF5350;">47</div></div>
+              <div class="f-num">47</div>
+            </div>
+            <div class="f-step">
+              <div class="f-label">Contactados</div>
+              <div class="f-track"><div class="f-fill" style="width:60%;background:rgba(230,81,0,0.25);color:#FF8A65;">28</div></div>
+              <div class="f-num">28</div>
+            </div>
+            <div class="f-step">
+              <div class="f-label">Demo enviada</div>
+              <div class="f-track"><div class="f-fill" style="width:26%;background:rgba(21,101,192,0.25);color:#64B5F6;">12</div></div>
+              <div class="f-num">12</div>
+            </div>
+            <div class="f-step">
+              <div class="f-label">Reunión</div>
+              <div class="f-track"><div class="f-fill" style="width:13%;background:rgba(212,175,55,0.25);color:var(--gold);">6</div></div>
+              <div class="f-num">6</div>
+            </div>
+            <div class="f-step">
+              <div class="f-label">Cerrado ✓</div>
+              <div class="f-track"><div class="f-fill" style="width:4%;background:rgba(46,125,50,0.25);color:#66BB6A;">2</div></div>
+              <div class="f-num">2</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTORES -->
         <div class="card fade-up delay-4">
-          <div class="card-title">Actividad</div>
-          <div class="card-sub">ÚLTIMAS ACCIONES EN TIEMPO REAL</div>
-          <div class="activity-list" id="activity-list">
-            <div class="a-item">
-              <div class="a-icon" style="background:rgba(46,125,50,0.1);">💰</div>
-              <div class="a-body">
-                <div class="a-title">Venta cerrada — Nail Studio</div>
-                <div class="a-meta">hace 23 min · 1.200€ · Barcelona</div>
+          <div class="card-title">Por sector</div>
+          <div class="card-sub">DISTRIBUCIÓN DE LEADS</div>
+          <div class="sector-rows" id="sector-rows">
+            <div class="s-row">
+              <div class="s-emoji">💇</div>
+              <div class="s-info">
+                <div class="s-name">Peluquerías</div>
+                <div class="s-track"><div class="s-fill" style="width:80%;"></div></div>
               </div>
+              <div class="s-count">12</div>
             </div>
-            <div class="a-item">
-              <div class="a-icon" style="background:rgba(21,101,192,0.1);">📩</div>
-              <div class="a-body">
-                <div class="a-title">Demo enviada — Carnicería Mago</div>
-                <div class="a-meta">hace 1h · Moratalaz, Madrid</div>
+            <div class="s-row">
+              <div class="s-emoji">✨</div>
+              <div class="s-info">
+                <div class="s-name">Estética</div>
+                <div class="s-track"><div class="s-fill" style="width:60%;"></div></div>
               </div>
+              <div class="s-count">9</div>
             </div>
-            <div class="a-item">
-              <div class="a-icon" style="background:rgba(198,40,40,0.1);">🎯</div>
-              <div class="a-body">
-                <div class="a-title">Lead ALTA — Peluquería R&M</div>
-                <div class="a-meta">hace 2h · Score 100 · 75 reseñas</div>
+            <div class="s-row">
+              <div class="s-emoji">🍽️</div>
+              <div class="s-info">
+                <div class="s-name">Restaurantes</div>
+                <div class="s-track"><div class="s-fill" style="width:47%;"></div></div>
               </div>
+              <div class="s-count">7</div>
             </div>
-            <div class="a-item">
-              <div class="a-icon" style="background:rgba(230,81,0,0.1);">📅</div>
-              <div class="a-body">
-                <div class="a-title">Reunión — Estética Alhambra</div>
-                <div class="a-meta">hace 3h · Mañana 11:00</div>
+            <div class="s-row">
+              <div class="s-emoji">🦷</div>
+              <div class="s-info">
+                <div class="s-name">Dental</div>
+                <div class="s-track"><div class="s-fill" style="width:33%;"></div></div>
               </div>
+              <div class="s-count">5</div>
             </div>
-            <div class="a-item">
-              <div class="a-icon" style="background:var(--gold-dim);">🔍</div>
-              <div class="a-body">
-                <div class="a-title">Scraping — 47 oportunidades</div>
-                <div class="a-meta">hace 4h · Madrid · Apify</div>
+            <div class="s-row">
+              <div class="s-emoji">🥩</div>
+              <div class="s-info">
+                <div class="s-name">Carnicerías</div>
+                <div class="s-track"><div class="s-fill" style="width:27%;"></div></div>
               </div>
+              <div class="s-count">4</div>
             </div>
+            <div class="s-row">
+              <div class="s-emoji">🏃</div>
+              <div class="s-info">
+                <div class="s-name">Fisioterapia</div>
+                <div class="s-track"><div class="s-fill" style="width:20%;"></div></div>
+              </div>
+              <div class="s-count">3</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOP LEADS TABLE -->
+        <div class="card fade-up delay-5">
+          <div class="card-title">Top leads</div>
+          <div class="card-sub">ORDENADOS POR SCORE</div>
+          <div class="leads-wrap">
+            <table class="leads">
+              <thead>
+                <tr>
+                  <th>Negocio</th>
+                  <th>Score</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody id="leads-tbody">
+                <tr>
+                  <td>
+                    <div class="business-name">Peluquería R&amp;M</div>
+                    <div class="business-loc">Villaverde · Sin web</div>
+                  </td>
+                  <td>
+                    <div class="score-mini"><div class="score-mini-fill" style="width:100%;"></div></div>
+                    <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">100</div>
+                  </td>
+                  <td><span class="badge badge-alta">ALTA</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="business-name">Salón Chocolate</div>
+                    <div class="business-loc">Madrid · Sin web</div>
+                  </td>
+                  <td>
+                    <div class="score-mini"><div class="score-mini-fill" style="width:100%;"></div></div>
+                    <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">100</div>
+                  </td>
+                  <td><span class="badge badge-alta">ALTA</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="business-name">Carnicería Mago</div>
+                    <div class="business-loc">Moratalaz · Sin web</div>
+                  </td>
+                  <td>
+                    <div class="score-mini"><div class="score-mini-fill" style="width:95%;"></div></div>
+                    <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">95</div>
+                  </td>
+                  <td><span class="badge badge-alta">ALTA</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="business-name">Estética Alhambra</div>
+                    <div class="business-loc">Latina · Web antigua</div>
+                  </td>
+                  <td>
+                    <div class="score-mini"><div class="score-mini-fill" style="width:90%;"></div></div>
+                    <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">90</div>
+                  </td>
+                  <td><span class="badge badge-media">MEDIA</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
       </div>
     </div>
+    <!-- END SECTION: DASHBOARD -->
 
-    <!-- BOTTOM GRID -->
-    <div class="bottom-grid">
-
-      <!-- FUNNEL -->
-      <div class="card fade-up delay-3">
-        <div class="card-title">Embudo de conversión</div>
-        <div class="card-sub">DE LEAD A VENTA CERRADA</div>
-        <div class="funnel-steps" id="funnel-steps">
-          <div class="f-step">
-            <div class="f-label">Leads</div>
-            <div class="f-track">
-              <div class="f-fill" style="width:100%;background:rgba(198,40,40,0.25);color:#EF5350;">47</div>
-            </div>
-            <div class="f-num">47</div>
-          </div>
-          <div class="f-step">
-            <div class="f-label">Contactados</div>
-            <div class="f-track">
-              <div class="f-fill" style="width:60%;background:rgba(230,81,0,0.25);color:#FF8A65;">28</div>
-            </div>
-            <div class="f-num">28</div>
-          </div>
-          <div class="f-step">
-            <div class="f-label">Demo enviada</div>
-            <div class="f-track">
-              <div class="f-fill" style="width:26%;background:rgba(21,101,192,0.25);color:#64B5F6;">12</div>
-            </div>
-            <div class="f-num">12</div>
-          </div>
-          <div class="f-step">
-            <div class="f-label">Reunión</div>
-            <div class="f-track">
-              <div class="f-fill" style="width:13%;background:rgba(212,175,55,0.25);color:var(--gold);">6</div>
-            </div>
-            <div class="f-num">6</div>
-          </div>
-          <div class="f-step">
-            <div class="f-label">Cerrado ✓</div>
-            <div class="f-track">
-              <div class="f-fill" style="width:4%;background:rgba(46,125,50,0.25);color:#66BB6A;">2</div>
-            </div>
-            <div class="f-num">2</div>
-          </div>
+    <!-- ======== SECTION: LEADS ======== -->
+    <div id="section-leads" class="page-section">
+      <div class="section-page-header">
+        <div>
+          <div class="section-page-title">Gestión de Leads</div>
+          <div class="section-page-sub">TODOS LOS LEADS · AIRTABLE SYNC</div>
+        </div>
+        <div class="section-page-actions">
+          <button class="btn-secondary" onclick="loadData()">↻ Actualizar</button>
+          <button class="btn-primary" onclick="newLead()">+ Nuevo Lead</button>
         </div>
       </div>
 
-      <!-- SECTORES -->
-      <div class="card fade-up delay-4">
-        <div class="card-title">Por sector</div>
-        <div class="card-sub">DISTRIBUCIÓN DE LEADS</div>
-        <div class="sector-rows" id="sector-rows">
-          <div class="s-row">
-            <div class="s-emoji">💇</div>
-            <div class="s-info">
-              <div class="s-name">Peluquerías</div>
-              <div class="s-track"><div class="s-fill" style="width:80%;"></div></div>
-            </div>
-            <div class="s-count">12</div>
-          </div>
-          <div class="s-row">
-            <div class="s-emoji">✨</div>
-            <div class="s-info">
-              <div class="s-name">Estética</div>
-              <div class="s-track"><div class="s-fill" style="width:60%;"></div></div>
-            </div>
-            <div class="s-count">9</div>
-          </div>
-          <div class="s-row">
-            <div class="s-emoji">🍽️</div>
-            <div class="s-info">
-              <div class="s-name">Restaurantes</div>
-              <div class="s-track"><div class="s-fill" style="width:47%;"></div></div>
-            </div>
-            <div class="s-count">7</div>
-          </div>
-          <div class="s-row">
-            <div class="s-emoji">🦷</div>
-            <div class="s-info">
-              <div class="s-name">Dental</div>
-              <div class="s-track"><div class="s-fill" style="width:33%;"></div></div>
-            </div>
-            <div class="s-count">5</div>
-          </div>
-          <div class="s-row">
-            <div class="s-emoji">🥩</div>
-            <div class="s-info">
-              <div class="s-name">Carnicerías</div>
-              <div class="s-track"><div class="s-fill" style="width:27%;"></div></div>
-            </div>
-            <div class="s-count">4</div>
-          </div>
-          <div class="s-row">
-            <div class="s-emoji">🏃</div>
-            <div class="s-info">
-              <div class="s-name">Fisioterapia</div>
-              <div class="s-track"><div class="s-fill" style="width:20%;"></div></div>
-            </div>
-            <div class="s-count">3</div>
-          </div>
+      <div class="card">
+        <div class="filter-bar" id="leads-filter-bar">
+          <button class="filter-chip active" onclick="filterLeads(this,'todos')">Todos</button>
+          <button class="filter-chip" onclick="filterLeads(this,'alta')">Alta prioridad</button>
+          <button class="filter-chip" onclick="filterLeads(this,'media')">Media</button>
+          <button class="filter-chip" onclick="filterLeads(this,'baja')">Baja</button>
+          <button class="filter-chip" onclick="filterLeads(this,'nuevo')">Sin contactar</button>
+          <button class="filter-chip" onclick="filterLeads(this,'cerrado')">Cerrados</button>
+        </div>
+        <div class="table-wrap">
+          <table class="full-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Negocio</th>
+                <th>Sector</th>
+                <th>Zona</th>
+                <th>Score</th>
+                <th>Prioridad</th>
+                <th>Estado</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody id="leads-full-tbody">
+              <tr><td colspan="8" class="empty-state">Cargando leads...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-info" id="leads-table-count"></div>
+      </div>
+    </div>
+    <!-- END SECTION: LEADS -->
+
+    <!-- ======== SECTION: DEMOS ======== -->
+    <div id="section-demos" class="page-section">
+      <div class="section-page-header">
+        <div>
+          <div class="section-page-title">Demos Enviadas</div>
+          <div class="section-page-sub">SEGUIMIENTO DE DEMOS · AIRTABLE</div>
+        </div>
+        <div class="section-page-actions">
+          <button class="btn-secondary" onclick="loadData()">↻ Actualizar</button>
+          <button class="btn-primary" onclick="newDemo()">+ Nueva Demo</button>
         </div>
       </div>
 
-      <!-- TOP LEADS TABLE -->
-      <div class="card fade-up delay-5">
-        <div class="card-title">Top leads</div>
-        <div class="card-sub">ORDENADOS POR SCORE</div>
-        <div class="leads-wrap">
-          <table class="leads">
+      <div class="card">
+        <div class="filter-bar" id="demos-filter-bar">
+          <button class="filter-chip active" onclick="filterDemos(this,'todas')">Todas</button>
+          <button class="filter-chip" onclick="filterDemos(this,'pendiente')">Pendiente</button>
+          <button class="filter-chip" onclick="filterDemos(this,'vista')">Vista</button>
+          <button class="filter-chip" onclick="filterDemos(this,'interesado')">Interesado</button>
+          <button class="filter-chip" onclick="filterDemos(this,'reunion')">Reunión</button>
+          <button class="filter-chip" onclick="filterDemos(this,'cerrado')">Cerradas</button>
+        </div>
+        <div class="table-wrap">
+          <table class="full-table">
             <thead>
               <tr>
                 <th>Negocio</th>
-                <th>Score</th>
+                <th>URL Demo</th>
+                <th>Enviada</th>
+                <th>Estado</th>
+                <th>Notas</th>
+              </tr>
+            </thead>
+            <tbody id="demos-tbody">
+              <tr><td colspan="5" class="empty-state">Cargando demos...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-info" id="demos-table-count"></div>
+      </div>
+    </div>
+    <!-- END SECTION: DEMOS -->
+
+    <!-- ======== SECTION: CLIENTES ======== -->
+    <div id="section-clientes" class="page-section">
+      <div class="section-page-header">
+        <div>
+          <div class="section-page-title">Clientes Activos</div>
+          <div class="section-page-sub">CARTERA DE CLIENTES · WEBS EN PRODUCCIÓN</div>
+        </div>
+        <div class="section-page-actions">
+          <button class="btn-secondary" onclick="loadData()">↻ Actualizar</button>
+          <button class="btn-primary" onclick="newCliente()">+ Nuevo Cliente</button>
+        </div>
+      </div>
+
+      <div class="kpi-grid kpi-grid-3" style="margin-bottom:24px;">
+        <div class="kpi-card">
+          <div class="glow" style="background:#2E7D32;"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">Clientes activos</div>
+            <div class="kpi-icon">👤</div>
+          </div>
+          <div class="kpi-value" id="cli-total">0</div>
+          <div class="kpi-footer">
+            <span class="kpi-delta up">↑ +1</span>
+            <span class="kpi-period">este mes</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="glow" style="background:var(--gold);"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">MRR total</div>
+            <div class="kpi-icon">📈</div>
+          </div>
+          <div class="kpi-value" id="cli-mrr">0€</div>
+          <div class="kpi-footer">
+            <span class="kpi-delta up">↑ +150€</span>
+            <span class="kpi-period">vs mes anterior</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="glow" style="background:#E65100;"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">Próxima renovación</div>
+            <div class="kpi-icon">📅</div>
+          </div>
+          <div class="kpi-value" style="font-size:22px;letter-spacing:0;" id="cli-proxima">—</div>
+          <div class="kpi-footer">
+            <span class="kpi-period" id="cli-proxima-nombre">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table class="full-table">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Web</th>
+                <th>Plan</th>
+                <th>MRR</th>
+                <th>Próxima factura</th>
                 <th>Estado</th>
               </tr>
             </thead>
-            <tbody id="leads-tbody">
-              <tr>
-                <td>
-                  <div class="business-name">Peluquería R&M</div>
-                  <div class="business-loc">Villaverde · Sin web</div>
-                </td>
-                <td>
-                  <div class="score-mini"><div class="score-mini-fill" style="width:100%;"></div></div>
-                  <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">100</div>
-                </td>
-                <td><span class="badge badge-alta">ALTA</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="business-name">Salón Chocolate</div>
-                  <div class="business-loc">Madrid · Sin web</div>
-                </td>
-                <td>
-                  <div class="score-mini"><div class="score-mini-fill" style="width:100%;"></div></div>
-                  <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">100</div>
-                </td>
-                <td><span class="badge badge-alta">ALTA</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="business-name">Carnicería Mago</div>
-                  <div class="business-loc">Moratalaz · Sin web</div>
-                </td>
-                <td>
-                  <div class="score-mini"><div class="score-mini-fill" style="width:95%;"></div></div>
-                  <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">95</div>
-                </td>
-                <td><span class="badge badge-alta">ALTA</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="business-name">Estética Alhambra</div>
-                  <div class="business-loc">Latina · Web antigua</div>
-                </td>
-                <td>
-                  <div class="score-mini"><div class="score-mini-fill" style="width:90%;"></div></div>
-                  <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">90</div>
-                </td>
-                <td><span class="badge badge-media">MEDIA</span></td>
-              </tr>
+            <tbody id="clientes-tbody">
+              <tr><td colspan="6" class="empty-state">Cargando clientes...</td></tr>
             </tbody>
           </table>
         </div>
       </div>
-
     </div>
+    <!-- END SECTION: CLIENTES -->
+
+    <!-- ======== SECTION: INGRESOS ======== -->
+    <div id="section-ingresos" class="page-section">
+      <div class="section-page-header">
+        <div>
+          <div class="section-page-title">Ingresos &amp; Finanzas</div>
+          <div class="section-page-sub">PAGOS COBRADOS Y PENDIENTES</div>
+        </div>
+        <div class="section-page-actions">
+          <button class="btn-secondary" onclick="exportData()">↓ Exportar</button>
+          <button class="btn-primary" onclick="newPago()">+ Registrar pago</button>
+        </div>
+      </div>
+
+      <div class="kpi-grid kpi-grid-4" style="margin-bottom:24px;">
+        <div class="kpi-card" style="background:linear-gradient(135deg,#1C1500,#0F0A00);border-color:rgba(212,175,55,0.2);">
+          <div class="glow" style="background:var(--gold);opacity:0.1;"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">Cash total año</div>
+            <div class="kpi-icon">✦</div>
+          </div>
+          <div class="kpi-value" id="ing-total-anio">0€</div>
+          <div class="kpi-footer">
+            <span class="kpi-period">2026 acumulado</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="glow" style="background:var(--gold);"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">Cash mes actual</div>
+            <div class="kpi-icon">💰</div>
+          </div>
+          <div class="kpi-value" id="ing-mes-actual">0€</div>
+          <div class="kpi-footer">
+            <span class="kpi-delta up">↑ +16%</span>
+            <span class="kpi-period">vs abril</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="glow" style="background:#E65100;"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">Pendiente cobro</div>
+            <div class="kpi-icon">⏳</div>
+          </div>
+          <div class="kpi-value" id="ing-pendiente">0€</div>
+          <div class="kpi-footer">
+            <span class="kpi-period">facturas emitidas</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="glow" style="background:#2E7D32;"></div>
+          <div class="kpi-header">
+            <div class="kpi-label">MRR</div>
+            <div class="kpi-icon">📈</div>
+          </div>
+          <div class="kpi-value" id="ing-mrr">0€</div>
+          <div class="kpi-footer">
+            <span class="kpi-delta up">↑ +150€</span>
+            <span class="kpi-period">vs mes anterior</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Historial de pagos</div>
+        <div class="card-sub">TODOS LOS COBROS REGISTRADOS</div>
+        <div class="filter-bar" id="pagos-filter-bar">
+          <button class="filter-chip active" onclick="filterPagos(this,'todos')">Todos</button>
+          <button class="filter-chip" onclick="filterPagos(this,'cobrado')">Cobrados</button>
+          <button class="filter-chip" onclick="filterPagos(this,'pendiente')">Pendientes</button>
+        </div>
+        <div class="table-wrap">
+          <table class="full-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Concepto</th>
+                <th>Importe</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="pagos-tbody">
+              <tr><td colspan="5" class="empty-state">Cargando pagos...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-info" id="pagos-table-count"></div>
+      </div>
+    </div>
+    <!-- END SECTION: INGRESOS -->
+
+    <!-- ======== SECTION: ACTIVIDAD ======== -->
+    <div id="section-actividad" class="page-section">
+      <div class="section-page-header">
+        <div>
+          <div class="section-page-title">Feed de Actividad</div>
+          <div class="section-page-sub">TODAS LAS ACCIONES EN TIEMPO REAL</div>
+        </div>
+        <div class="section-page-actions">
+          <button class="btn-secondary" onclick="exportData()">↓ Exportar</button>
+          <button class="btn-primary" onclick="loadData()">↻ Actualizar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="filter-bar" id="activity-filter-bar">
+          <button class="filter-chip active" onclick="filterActivity(this,'todo')">Todo</button>
+          <button class="filter-chip" onclick="filterActivity(this,'venta')">Ventas</button>
+          <button class="filter-chip" onclick="filterActivity(this,'demo')">Demos</button>
+          <button class="filter-chip" onclick="filterActivity(this,'lead')">Leads</button>
+          <button class="filter-chip" onclick="filterActivity(this,'scraping')">Scraping</button>
+          <button class="filter-chip" onclick="filterActivity(this,'reunion')">Reuniones</button>
+        </div>
+        <div id="activity-full-list">
+          <div class="af-item">
+            <div class="af-icon" style="background:rgba(46,125,50,0.1);">💰</div>
+            <div class="af-body">
+              <div class="af-title">Cargando actividad...</div>
+              <div class="af-meta">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END SECTION: ACTIVIDAD -->
 
   </div>
 </div>
@@ -1529,7 +1425,7 @@ table.leads tr:last-child td { border-bottom: none; }
 <div class="notif-wrap">
   <div class="notif" id="notif">
     <div class="notif-title">🔥 Lead ALTA detectado</div>
-    <div class="notif-body">Peluquería R&M · Score 100/100<br>Villaverde, Madrid · Sin web · 75 reseñas</div>
+    <div class="notif-body">Peluquería R&amp;M · Score 100/100\nVillaverde, Madrid · Sin web</div>
   </div>
 </div>
 
@@ -1545,64 +1441,166 @@ const DEFAULT_DATA = {
   },
   cash: {
     total: 4200,
-    periodo: 'Cash collected · Abril 2026',
+    periodo: 'Cash collected · Mayo 2026',
     meta_texto: 'Meta mensual: 5.000€ · 84% completado',
     items: [
       { nombre: 'Nail Studio BCN', cantidad: '1.200€' },
       { nombre: 'Barber Kings VLC', cantidad: '800€' },
-      { nombre: 'Mantenimientos', cantidad: '2.200€' }
+      { nombre: 'Mantenimientos x4', cantidad: '700€' },
+      { nombre: 'Pendiente cobro', cantidad: '600€' }
     ]
   },
   actividad: [
-    { icono: '💰', titulo: 'Venta cerrada — Nail Studio', meta: 'hace 23 min · 1.200€ · Barcelona', color: 'rgba(46,125,50,0.1)' },
-    { icono: '📩', titulo: 'Demo enviada — Carnicería Mago', meta: 'hace 1h · Moratalaz, Madrid', color: 'rgba(21,101,192,0.1)' },
-    { icono: '🎯', titulo: 'Lead ALTA — Peluquería R&M', meta: 'hace 2h · Score 100 · 75 reseñas', color: 'rgba(198,40,40,0.1)' },
-    { icono: '📅', titulo: 'Reunión — Estética Alhambra', meta: 'hace 3h · Mañana 11:00', color: 'rgba(230,81,0,0.1)' },
-    { icono: '🔍', titulo: 'Scraping — 47 oportunidades', meta: 'hace 4h · Madrid · Apify', color: 'rgba(212,175,55,0.15)' }
+    { tipo: 'venta',    icono: '💰', titulo: 'Venta cerrada — Nail Studio BCN',    meta: 'hace 23 min · 1.200€ · Barcelona', color: 'rgba(46,125,50,0.1)' },
+    { tipo: 'demo',     icono: '📩', titulo: 'Demo enviada — Carnicería Mago',      meta: 'hace 1h · Moratalaz, Madrid',      color: 'rgba(21,101,192,0.1)' },
+    { tipo: 'lead',     icono: '🎯', titulo: 'Lead ALTA — Peluquería R&M',          meta: 'hace 2h · Score 100 · 75 reseñas', color: 'rgba(198,40,40,0.1)' },
+    { tipo: 'reunion',  icono: '📅', titulo: 'Reunión — Estética Alhambra',         meta: 'hace 3h · Mañana 11:00',           color: 'rgba(230,81,0,0.1)' },
+    { tipo: 'scraping', icono: '🔍', titulo: 'Scraping — 47 oportunidades',         meta: 'hace 4h · Madrid · Apify',         color: 'rgba(212,175,55,0.15)' },
+    { tipo: 'venta',    icono: '💰', titulo: 'Venta cerrada — Barber Kings VLC',    meta: 'ayer · 800€ · Valencia',           color: 'rgba(46,125,50,0.1)' },
+    { tipo: 'lead',     icono: '🎯', titulo: 'Lead ALTA — Fisio Vallecas',          meta: 'ayer · Score 85 · 48 reseñas',     color: 'rgba(198,40,40,0.1)' },
+    { tipo: 'demo',     icono: '📩', titulo: 'Demo enviada — Dental Carabanchel',   meta: 'ayer · Carabanchel, Madrid',       color: 'rgba(21,101,192,0.1)' },
+    { tipo: 'lead',     icono: '🎯', titulo: 'Lead MEDIA — Restaurante La Mar',     meta: 'hace 2 días · Score 75 · Retiro',  color: 'rgba(198,40,40,0.1)' },
+    { tipo: 'scraping', icono: '🔍', titulo: 'Scraping — 23 oportunidades',         meta: 'hace 2 días · Barcelona · Apify',  color: 'rgba(212,175,55,0.15)' },
+    { tipo: 'reunion',  icono: '📅', titulo: 'Reunión completada — Nail Studio',    meta: 'hace 3 días · Acordado precio',    color: 'rgba(230,81,0,0.1)' },
+    { tipo: 'scraping', icono: '🔍', titulo: 'Scraping — 31 oportunidades',         meta: 'hace 4 días · Valencia · Apify',   color: 'rgba(212,175,55,0.15)' }
   ],
   funnel: [
-    { label: 'Leads', valor: 47, pct: 100, bg: 'rgba(198,40,40,0.25)', color: '#EF5350' },
-    { label: 'Contactados', valor: 28, pct: 60, bg: 'rgba(230,81,0,0.25)', color: '#FF8A65' },
-    { label: 'Demo enviada', valor: 12, pct: 26, bg: 'rgba(21,101,192,0.25)', color: '#64B5F6' },
-    { label: 'Reunión', valor: 6, pct: 13, bg: 'rgba(212,175,55,0.25)', color: 'var(--gold)' },
-    { label: 'Cerrado ✓', valor: 2, pct: 4, bg: 'rgba(46,125,50,0.25)', color: '#66BB6A' }
+    { label: 'Leads',        valor: 47, pct: 100, bg: 'rgba(198,40,40,0.25)',    color: '#EF5350' },
+    { label: 'Contactados',  valor: 28, pct: 60,  bg: 'rgba(230,81,0,0.25)',     color: '#FF8A65' },
+    { label: 'Demo enviada', valor: 12, pct: 26,  bg: 'rgba(21,101,192,0.25)',   color: '#64B5F6' },
+    { label: 'Reunión',      valor: 6,  pct: 13,  bg: 'rgba(212,175,55,0.25)',   color: 'var(--gold)' },
+    { label: 'Cerrado ✓',   valor: 2,  pct: 4,   bg: 'rgba(46,125,50,0.25)',    color: '#66BB6A' }
   ],
   sectores: [
     { emoji: '💇', nombre: 'Peluquerías', count: 12, pct: 80 },
-    { emoji: '✨', nombre: 'Estética', count: 9, pct: 60 },
-    { emoji: '🍽️', nombre: 'Restaurantes', count: 7, pct: 47 },
-    { emoji: '🦷', nombre: 'Dental', count: 5, pct: 33 },
-    { emoji: '🥩', nombre: 'Carnicerías', count: 4, pct: 27 },
-    { emoji: '🏃', nombre: 'Fisioterapia', count: 3, pct: 20 }
+    { emoji: '✨', nombre: 'Estética',    count: 9,  pct: 60 },
+    { emoji: '🍽️', nombre: 'Restaurantes',count: 7,  pct: 47 },
+    { emoji: '🦷', nombre: 'Dental',      count: 5,  pct: 33 },
+    { emoji: '🥩', nombre: 'Carnicerías', count: 4,  pct: 27 },
+    { emoji: '🏃', nombre: 'Fisioterapia',count: 3,  pct: 20 }
   ],
   top_leads: [
-    { nombre: 'Peluquería R&M', loc: 'Villaverde · Sin web', score: 100, prioridad: 'alta' },
-    { nombre: 'Salón Chocolate', loc: 'Madrid · Sin web', score: 100, prioridad: 'alta' },
-    { nombre: 'Carnicería Mago', loc: 'Moratalaz · Sin web', score: 95, prioridad: 'alta' },
-    { nombre: 'Estética Alhambra', loc: 'Latina · Web antigua', score: 90, prioridad: 'media' }
+    { nombre: 'Peluquería R&M',   loc: 'Villaverde · Sin web',    score: 100, prioridad: 'alta' },
+    { nombre: 'Salón Chocolate',  loc: 'Madrid · Sin web',         score: 100, prioridad: 'alta' },
+    { nombre: 'Carnicería Mago',  loc: 'Moratalaz · Sin web',      score: 95,  prioridad: 'alta' },
+    { nombre: 'Estética Alhambra',loc: 'Latina · Web antigua',     score: 90,  prioridad: 'media' }
   ],
+  leads: [
+    { id:1,  nombre: 'Peluquería R&M',      sector: 'Peluquería',  zona: 'Villaverde',    score: 100, prioridad: 'alta',  estado: 'nuevo',        fecha: '12/05/2026' },
+    { id:2,  nombre: 'Salón Chocolate',     sector: 'Peluquería',  zona: 'Madrid Centro', score: 100, prioridad: 'alta',  estado: 'nuevo',        fecha: '12/05/2026' },
+    { id:3,  nombre: 'Fisio Vallecas',      sector: 'Fisioterapia',zona: 'Vallecas',      score: 85,  prioridad: 'alta',  estado: 'nuevo',        fecha: '12/05/2026' },
+    { id:4,  nombre: 'Barbería Hipster',    sector: 'Barbería',    zona: 'Malasaña',      score: 72,  prioridad: 'media', estado: 'nuevo',        fecha: '12/05/2026' },
+    { id:5,  nombre: 'Panadería Artesanal', sector: 'Panadería',   zona: 'Chamberí',      score: 65,  prioridad: 'baja',  estado: 'nuevo',        fecha: '12/05/2026' },
+    { id:6,  nombre: 'Carnicería Mago',     sector: 'Carnicería',  zona: 'Moratalaz',     score: 95,  prioridad: 'alta',  estado: 'contactado',   fecha: '11/05/2026' },
+    { id:7,  nombre: 'Dental Carabanchel',  sector: 'Dental',      zona: 'Carabanchel',   score: 80,  prioridad: 'media', estado: 'contactado',   fecha: '11/05/2026' },
+    { id:8,  nombre: 'Centro Pilates Sol',  sector: 'Fitness',     zona: 'Sol',           score: 68,  prioridad: 'media', estado: 'contactado',   fecha: '10/05/2026' },
+    { id:9,  nombre: 'Restaurante La Mar',  sector: 'Restaurante', zona: 'Retiro',        score: 75,  prioridad: 'media', estado: 'demo_enviada', fecha: '10/05/2026' },
+    { id:10, nombre: 'Estética Alhambra',   sector: 'Estética',    zona: 'Latina',        score: 90,  prioridad: 'alta',  estado: 'reunion',      fecha: '09/05/2026' },
+    { id:11, nombre: 'Nail Studio BCN',     sector: 'Estética',    zona: 'Barcelona',     score: 95,  prioridad: 'alta',  estado: 'cerrado',      fecha: '08/05/2026' },
+    { id:12, nombre: 'Barber Kings VLC',    sector: 'Barbería',    zona: 'Valencia',      score: 88,  prioridad: 'alta',  estado: 'cerrado',      fecha: '07/05/2026' }
+  ],
+  demos: [
+    { nombre: 'Restaurante La Mar',  url: 'lamar.veloxia.es',         enviada: '10/05/2026', estado: 'vista',      notas: 'Ha visto 3 veces, sin respuesta' },
+    { nombre: 'Carnicería Mago',     url: 'mago.veloxia.es',          enviada: '11/05/2026', estado: 'pendiente',  notas: 'WhatsApp enviado, esperando' },
+    { nombre: 'Dental Carabanchel',  url: 'dental-car.veloxia.es',    enviada: '11/05/2026', estado: 'interesado', notas: 'Pide reunión semana próxima' },
+    { nombre: 'Estética Alhambra',   url: 'alhambra.veloxia.es',      enviada: '09/05/2026', estado: 'reunion',    notas: 'Reunión mañana 11:00' },
+    { nombre: 'Centro Pilates Sol',  url: 'pilates-sol.veloxia.es',   enviada: '10/05/2026', estado: 'pendiente',  notas: 'Email enviado, sin abrir' },
+    { nombre: 'Nail Studio BCN',     url: 'nailstudio.veloxia.es',    enviada: '05/05/2026', estado: 'cerrado',    notas: 'Cerrado · 1.200€ cobrados' },
+    { nombre: 'Barber Kings VLC',    url: 'barberkings.veloxia.es',   enviada: '04/05/2026', estado: 'cerrado',    notas: 'Cerrado · 800€ cobrados' }
+  ],
+  clientes: [
+    { nombre: 'Nail Studio BCN',    web: 'nailstudiobcn.es',         plan: 'Premium', mrr: 200, proxima_factura: '01/06/2026', estado: 'activo' },
+    { nombre: 'Barber Kings VLC',   web: 'barberkings.es',           plan: 'Básico',  mrr: 150, proxima_factura: '01/06/2026', estado: 'activo' },
+    { nombre: 'Fisio Norte MAD',    web: 'fisionortemadrid.es',      plan: 'Premium', mrr: 200, proxima_factura: '15/05/2026', estado: 'activo' },
+    { nombre: 'Restaurante Cibeles',web: 'restaurantecibeles.es',    plan: 'Básico',  mrr: 150, proxima_factura: '20/05/2026', estado: 'activo' }
+  ],
+  ingresos: {
+    total_anio: 8400, mes_actual: 4200, pendiente: 600, mrr: 700,
+    pagos: [
+      { fecha: '08/05/2026', cliente: 'Nail Studio BCN',    concepto: 'Web Premium · Setup',     importe: 1200, estado: 'cobrado' },
+      { fecha: '07/05/2026', cliente: 'Barber Kings VLC',   concepto: 'Web Básica · Setup',      importe: 800,  estado: 'cobrado' },
+      { fecha: '01/05/2026', cliente: 'Nail Studio BCN',    concepto: 'Mantenimiento Mayo',      importe: 200,  estado: 'cobrado' },
+      { fecha: '01/05/2026', cliente: 'Barber Kings VLC',   concepto: 'Mantenimiento Mayo',      importe: 150,  estado: 'cobrado' },
+      { fecha: '01/05/2026', cliente: 'Fisio Norte MAD',    concepto: 'Mantenimiento Mayo',      importe: 200,  estado: 'cobrado' },
+      { fecha: '01/05/2026', cliente: 'Restaurante Cibeles',concepto: 'Mantenimiento Mayo',      importe: 150,  estado: 'cobrado' },
+      { fecha: '15/05/2026', cliente: 'Fisio Norte MAD',    concepto: 'Mantenimiento Junio',     importe: 200,  estado: 'pendiente' },
+      { fecha: '20/05/2026', cliente: 'Restaurante Cibeles',concepto: 'Mantenimiento Junio',     importe: 150,  estado: 'pendiente' },
+      { fecha: '08/04/2026', cliente: 'Fisio Norte MAD',    concepto: 'Web Premium · Setup',     importe: 1200, estado: 'cobrado' },
+      { fecha: '01/04/2026', cliente: 'Restaurante Cibeles',concepto: 'Web Básica · Setup',      importe: 800,  estado: 'cobrado' }
+    ]
+  },
   notificaciones: [
-    { titulo: '🔥 Lead ALTA detectado', cuerpo: 'Peluquería R&M · Score 100/100\nVillaverde, Madrid · Sin web' },
-    { titulo: '💰 Venta cerrada!', cuerpo: 'Barber Kings · Valencia\n800€ cobrados' },
-    { titulo: '📩 Demo enviada', cuerpo: 'Carnicería Mago · Moratalaz\nURL enviada por WhatsApp' },
-    { titulo: '📅 Reunión agendada', cuerpo: 'Estética Alhambra · Latina\nMañana a las 11:00' },
-    { titulo: '🔍 Scraping completado', cuerpo: '47 oportunidades detectadas\nMadrid · Todos los sectores' }
+    { titulo: '🔥 Lead ALTA detectado',  cuerpo: 'Peluquería R&M · Score 100/100\nVillaverde, Madrid · Sin web' },
+    { titulo: '💰 Venta cerrada!',       cuerpo: 'Barber Kings · Valencia\n800€ cobrados' },
+    { titulo: '📩 Demo enviada',         cuerpo: 'Carnicería Mago · Moratalaz\nURL enviada por WhatsApp' },
+    { titulo: '📅 Reunión agendada',     cuerpo: 'Estética Alhambra · Latina\nMañana a las 11:00' },
+    { titulo: '🔍 Scraping completado',  cuerpo: '47 oportunidades detectadas\nMadrid · Todos los sectores' }
   ]
 };
 
-// DATETIME
-function updateTime() {
-  const now = new Date();
-  document.getElementById('datetime').textContent = now.toLocaleString('es-ES', {
-    weekday: 'long', day: '2-digit', month: 'long',
-    hour: '2-digit', minute: '2-digit', second: '2-digit'
-  });
-}
-updateTime();
-setInterval(updateTime, 1000);
+// ============ GLOBAL STATE ============
+let allLeadsData = [];
+let allDemosData = [];
+let allPagosData = [];
+let allActivityData = [];
+let notifMessages = DEFAULT_DATA.notificaciones.map(n => ({ title: n.titulo, body: n.cuerpo }));
 
-// COUNTER ANIMATION
-function animateValue(el, target, suffix = '', duration = 1800) {
+// ============ SECTION CONFIG ============
+const SECTION_CONFIG = {
+  dashboard: { title: 'Panel de Operaciones', btn: '+ Nuevo scraping', fn: 'runScraping()' },
+  leads:     { title: 'Gestión de Leads',     btn: '+ Nuevo Lead',     fn: 'newLead()' },
+  demos:     { title: 'Demos Enviadas',        btn: '+ Nueva Demo',     fn: 'newDemo()' },
+  clientes:  { title: 'Clientes',             btn: '+ Nuevo Cliente',  fn: 'newCliente()' },
+  ingresos:  { title: 'Ingresos & Finanzas',  btn: '↓ Exportar',       fn: 'exportData()' },
+  actividad: { title: 'Actividad',            btn: '↻ Actualizar',     fn: 'loadData()' }
+};
+
+// ============ NAVIGATION ============
+function navigateTo(section) {
+  document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+  const navEl = document.querySelector(`[data-section="${section}"]`);
+  if (navEl) navEl.classList.add('active');
+
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  const sectionEl = document.getElementById('section-' + section);
+  if (sectionEl) sectionEl.classList.add('active');
+
+  const cfg = SECTION_CONFIG[section];
+  if (cfg) {
+    document.getElementById('page-title').textContent = cfg.title;
+    const btn = document.getElementById('topbar-btn');
+    btn.textContent = cfg.btn;
+    btn.setAttribute('onclick', cfg.fn);
+  }
+
+  if (window.innerWidth < 900) {
+    document.getElementById('sidebar').classList.remove('open');
+  }
+}
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const section = item.dataset.section;
+    if (section && document.getElementById('section-' + section)) {
+      navigateTo(section);
+    } else {
+      document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    }
+  });
+});
+
+// ============ UTILITIES ============
+function esc(str) {
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function animateValue(el, target, suffix, duration) {
+  if (!el) return;
+  duration = duration || 1800;
   let start = 0;
   const step = target / (duration / 16);
   const timer = setInterval(() => {
@@ -1612,60 +1610,100 @@ function animateValue(el, target, suffix = '', duration = 1800) {
   }, 16);
 }
 
-// APPLY DATA TO DOM
-function applyData(data) {
-  const kpiLeads = document.getElementById('kpi-leads');
-  const kpiDemos = document.getElementById('kpi-demos');
-  const kpiVentas = document.getElementById('kpi-ventas');
-  const kpiCash = document.getElementById('kpi-cash-hoy');
-  if (kpiLeads) animateValue(kpiLeads, data.kpis.leads, '');
-  if (kpiDemos) animateValue(kpiDemos, data.kpis.demos, '');
-  if (kpiVentas) animateValue(kpiVentas, data.kpis.ventas, '');
-  if (kpiCash) animateValue(kpiCash, data.kpis.cash_hoy, '€');
+function getPrioridadBadge(p) {
+  const map = { alta: 'badge-alta', media: 'badge-media', baja: 'badge-baja' };
+  const lbl = { alta: 'ALTA', media: 'MEDIA', baja: 'BAJA' };
+  const k = (p || '').toLowerCase();
+  return `<span class="badge ${map[k] || ''}">${lbl[k] || esc(p)}</span>`;
+}
 
-  const deltaLeads = document.getElementById('delta-leads');
-  const deltaDemos = document.getElementById('delta-demos');
-  const deltaVentas = document.getElementById('delta-ventas');
-  const deltaCash = document.getElementById('delta-cash-hoy');
-  if (deltaLeads) deltaLeads.textContent = data.kpis.leads_delta;
-  if (deltaDemos) deltaDemos.textContent = data.kpis.demos_delta;
-  if (deltaVentas) deltaVentas.textContent = data.kpis.ventas_delta;
-  if (deltaCash) deltaCash.textContent = data.kpis.cash_hoy_delta;
+function getEstadoLeadBadge(estado) {
+  const s = (estado || '').toLowerCase().replace(/[_\s]+/g, '_');
+  const map = {
+    nuevo: ['badge-nuevo', 'NUEVO'],
+    contactado: ['badge-contactado', 'CONTACTADO'],
+    demo_enviada: ['badge-demo', 'DEMO'],
+    demo: ['badge-demo', 'DEMO'],
+    reunion: ['badge-reunion', 'REUNIÓN'],
+    cerrado: ['badge-cerrado', 'CERRADO']
+  };
+  const v = map[s] || ['badge', esc(estado)];
+  return `<span class="badge ${v[0]}">${v[1]}</span>`;
+}
 
-  const cashTotal = document.getElementById('cash-total');
-  if (cashTotal) animateValue(cashTotal, data.cash.total, '€');
-  const cashPeriodo = document.getElementById('cash-periodo');
-  if (cashPeriodo) cashPeriodo.textContent = data.cash.periodo;
-  const cashMeta = document.getElementById('cash-meta');
-  if (cashMeta) cashMeta.textContent = data.cash.meta_texto;
-  const cashItemsList = document.getElementById('cash-items-list');
-  if (cashItemsList) {
-    cashItemsList.innerHTML = data.cash.items.map(item =>
+function getDemoEstadoBadge(estado) {
+  const s = (estado || '').toLowerCase();
+  const map = {
+    pendiente:  ['badge-pendiente',  'PENDIENTE'],
+    vista:      ['badge-vista',      'VISTA'],
+    interesado: ['badge-interesado', 'INTERESADO'],
+    reunion:    ['badge-reunion',    'REUNIÓN'],
+    cerrado:    ['badge-cerrado',    'CERRADO']
+  };
+  const v = map[s] || ['badge', esc(estado)];
+  return `<span class="badge ${v[0]}">${v[1]}</span>`;
+}
+
+// ============ DATETIME ============
+function updateTime() {
+  const now = new Date();
+  const el = document.getElementById('datetime');
+  if (el) el.textContent = now.toLocaleString('es-ES', {
+    weekday: 'long', day: '2-digit', month: 'long',
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+}
+updateTime();
+setInterval(updateTime, 1000);
+
+// ============ RENDER: DASHBOARD ============
+function applyDashboard(d) {
+  // KPIs
+  animateValue(document.getElementById('kpi-leads'),    d.kpis.leads,    '');
+  animateValue(document.getElementById('kpi-demos'),    d.kpis.demos,    '');
+  animateValue(document.getElementById('kpi-ventas'),   d.kpis.ventas,   '');
+  animateValue(document.getElementById('kpi-cash-hoy'), d.kpis.cash_hoy, '€');
+
+  const setTxt = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setTxt('delta-leads',    d.kpis.leads_delta);
+  setTxt('delta-demos',    d.kpis.demos_delta);
+  setTxt('delta-ventas',   d.kpis.ventas_delta);
+  setTxt('delta-cash-hoy', d.kpis.cash_hoy_delta);
+
+  // Cash hero
+  animateValue(document.getElementById('cash-total'), d.cash.total, '€');
+  setTxt('cash-periodo', d.cash.periodo);
+  setTxt('cash-meta',    d.cash.meta_texto);
+  const cashList = document.getElementById('cash-items-list');
+  if (cashList) {
+    cashList.innerHTML = d.cash.items.map(item =>
       `<div class="cash-item">
-        <span class="cash-item-name">${item.nombre}</span>
-        <span class="cash-item-amount">${item.cantidad}</span>
+        <span class="cash-item-name">${esc(item.nombre)}</span>
+        <span class="cash-item-amount">${esc(item.cantidad)}</span>
       </div>`
     ).join('');
   }
 
-  const activityList = document.getElementById('activity-list');
-  if (activityList) {
-    activityList.innerHTML = data.actividad.map(a =>
+  // Activity (compact)
+  const actList = document.getElementById('activity-list');
+  if (actList && d.actividad.length) {
+    actList.innerHTML = d.actividad.slice(0, 5).map(a =>
       `<div class="a-item">
         <div class="a-icon" style="background:${a.color};">${a.icono}</div>
         <div class="a-body">
-          <div class="a-title">${a.titulo}</div>
-          <div class="a-meta">${a.meta}</div>
+          <div class="a-title">${esc(a.titulo)}</div>
+          <div class="a-meta">${esc(a.meta)}</div>
         </div>
       </div>`
     ).join('');
   }
 
-  const funnelSteps = document.getElementById('funnel-steps');
-  if (funnelSteps) {
-    funnelSteps.innerHTML = data.funnel.map(f =>
+  // Funnel
+  const funnelEl = document.getElementById('funnel-steps');
+  if (funnelEl) {
+    funnelEl.innerHTML = d.funnel.map(f =>
       `<div class="f-step">
-        <div class="f-label">${f.label}</div>
+        <div class="f-label">${esc(f.label)}</div>
         <div class="f-track">
           <div class="f-fill" style="width:${f.pct}%;background:${f.bg};color:${f.color};">${f.valor}</div>
         </div>
@@ -1674,13 +1712,14 @@ function applyData(data) {
     ).join('');
   }
 
-  const sectorRows = document.getElementById('sector-rows');
-  if (sectorRows) {
-    sectorRows.innerHTML = data.sectores.map(s =>
+  // Sectors
+  const sectEl = document.getElementById('sector-rows');
+  if (sectEl) {
+    sectEl.innerHTML = d.sectores.map(s =>
       `<div class="s-row">
         <div class="s-emoji">${s.emoji}</div>
         <div class="s-info">
-          <div class="s-name">${s.nombre}</div>
+          <div class="s-name">${esc(s.nombre)}</div>
           <div class="s-track"><div class="s-fill" style="width:${s.pct}%;"></div></div>
         </div>
         <div class="s-count">${s.count}</div>
@@ -1688,34 +1727,226 @@ function applyData(data) {
     ).join('');
   }
 
-  const leadsTbody = document.getElementById('leads-tbody');
-  if (leadsTbody) {
-    leadsTbody.innerHTML = data.top_leads.map(l => {
-      const badgeClass = l.prioridad === 'alta' ? 'badge-alta' : l.prioridad === 'media' ? 'badge-media' : 'badge-baja';
-      const badgeText = l.prioridad === 'alta' ? 'ALTA' : l.prioridad === 'media' ? 'MEDIA' : 'BAJA';
+  // Top leads (mini table)
+  const tbody = document.getElementById('leads-tbody');
+  if (tbody) {
+    tbody.innerHTML = d.top_leads.map(l => {
+      const bClass = l.prioridad === 'alta' ? 'badge-alta' : l.prioridad === 'media' ? 'badge-media' : 'badge-baja';
+      const bText  = l.prioridad === 'alta' ? 'ALTA'       : l.prioridad === 'media' ? 'MEDIA'       : 'BAJA';
       return `<tr>
         <td>
-          <div class="business-name">${l.nombre}</div>
-          <div class="business-loc">${l.loc}</div>
+          <div class="business-name">${esc(l.nombre)}</div>
+          <div class="business-loc">${esc(l.loc)}</div>
         </td>
         <td>
           <div class="score-mini"><div class="score-mini-fill" style="width:${l.score}%;"></div></div>
           <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">${l.score}</div>
         </td>
-        <td><span class="badge ${badgeClass}">${badgeText}</span></td>
+        <td><span class="badge ${bClass}">${bText}</span></td>
       </tr>`;
     }).join('');
   }
 
-  if (data.notificaciones && data.notificaciones.length) {
-    notifMessages.splice(0, notifMessages.length, ...data.notificaciones.map(n => ({ title: n.titulo, body: n.cuerpo })));
+  // Pipeline subtitle
+  const pSub = document.getElementById('pipeline-sub');
+  const active = d.funnel.reduce((a, f) => a + (f.label !== 'Cerrado ✓' ? f.valor : 0), 0);
+  if (pSub) pSub.textContent = `ESTADO ACTUAL · ${active} LEADS ACTIVOS`;
+
+  // Last update
+  setTxt('last-update', 'Actualizado ' + new Date().toLocaleTimeString('es-ES'));
+}
+
+// ============ RENDER: LEADS ============
+function renderLeadsTable(leads) {
+  const tbody = document.getElementById('leads-full-tbody');
+  if (!tbody) return;
+  if (!leads || !leads.length) {
+    tbody.innerHTML = '<tr><td colspan="8" class="empty-state">Sin leads disponibles</td></tr>';
+    return;
+  }
+  tbody.innerHTML = leads.map((l, i) =>
+    `<tr>
+      <td class="row-num">${i + 1}</td>
+      <td>
+        <div class="business-name">${esc(l.nombre)}</div>
+        <div class="business-loc">${esc(l.zona)}</div>
+      </td>
+      <td style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">${esc(l.sector)}</td>
+      <td style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">${esc(l.zona)}</td>
+      <td>
+        <div class="score-mini"><div class="score-mini-fill" style="width:${l.score}%;"></div></div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);margin-top:3px;">${l.score}</div>
+      </td>
+      <td>${getPrioridadBadge(l.prioridad)}</td>
+      <td>${getEstadoLeadBadge(l.estado)}</td>
+      <td style="font-family:var(--font-mono);font-size:10px;color:var(--muted2);">${esc(l.fecha)}</td>
+    </tr>`
+  ).join('');
+  const countEl = document.getElementById('leads-table-count');
+  if (countEl) countEl.textContent = `Mostrando ${leads.length} de ${allLeadsData.length} leads`;
+}
+
+function applyLeads(leads) {
+  allLeadsData = leads || [];
+  renderLeadsTable(allLeadsData);
+  const badge = document.getElementById('nav-badge-leads');
+  if (badge) badge.textContent = allLeadsData.length;
+}
+
+// ============ RENDER: DEMOS ============
+function renderDemosTable(demos) {
+  const tbody = document.getElementById('demos-tbody');
+  if (!tbody) return;
+  if (!demos || !demos.length) {
+    tbody.innerHTML = '<tr><td colspan="5" class="empty-state">Sin demos disponibles</td></tr>';
+    return;
+  }
+  tbody.innerHTML = demos.map(d =>
+    `<tr>
+      <td><div class="business-name">${esc(d.nombre)}</div></td>
+      <td><a class="demo-url" href="https://${esc(d.url)}" target="_blank">${esc(d.url)}</a></td>
+      <td style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">${esc(d.enviada)}</td>
+      <td>${getDemoEstadoBadge(d.estado)}</td>
+      <td style="font-size:11px;color:var(--muted);font-family:var(--font-mono);">${esc(d.notas)}</td>
+    </tr>`
+  ).join('');
+  const countEl = document.getElementById('demos-table-count');
+  if (countEl) countEl.textContent = `Mostrando ${demos.length} de ${allDemosData.length} demos`;
+}
+
+function applyDemos(demos) {
+  allDemosData = demos || [];
+  renderDemosTable(allDemosData);
+  const badge = document.getElementById('nav-badge-demos');
+  if (badge) badge.textContent = allDemosData.length;
+}
+
+// ============ RENDER: CLIENTES ============
+function applyClientes(clientes) {
+  if (!clientes || !clientes.length) return;
+  const tbody = document.getElementById('clientes-tbody');
+  if (tbody) {
+    tbody.innerHTML = clientes.map(c =>
+      `<tr>
+        <td><div class="business-name">${esc(c.nombre)}</div></td>
+        <td><a class="demo-url" href="https://${esc(c.web)}" target="_blank">${esc(c.web)}</a></td>
+        <td style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">${esc(c.plan)}</td>
+        <td><span style="font-family:var(--font-display);font-size:18px;color:var(--gold);">${c.mrr}€</span></td>
+        <td style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">${esc(c.proxima_factura)}</td>
+        <td><span class="badge badge-activo">ACTIVO</span></td>
+      </tr>`
+    ).join('');
+  }
+  // KPIs
+  const totalMrr = clientes.reduce((s, c) => s + (c.mrr || 0), 0);
+  animateValue(document.getElementById('cli-total'), clientes.length, '');
+  animateValue(document.getElementById('cli-mrr'),   totalMrr, '€');
+  // Nearest renewal
+  const sorted = [...clientes].sort((a, b) => {
+    const p = d => d.split('/').reverse().join('');
+    return p(a.proxima_factura) > p(b.proxima_factura) ? 1 : -1;
+  });
+  const nearest = sorted[0];
+  if (nearest) {
+    const el = document.getElementById('cli-proxima');
+    const elN = document.getElementById('cli-proxima-nombre');
+    if (el) el.textContent = nearest.proxima_factura;
+    if (elN) elN.textContent = nearest.nombre;
   }
 }
 
-// FETCH DATA
+// ============ RENDER: INGRESOS ============
+function renderPagosTable(pagos) {
+  const tbody = document.getElementById('pagos-tbody');
+  if (!tbody) return;
+  if (!pagos || !pagos.length) {
+    tbody.innerHTML = '<tr><td colspan="5" class="empty-state">Sin pagos disponibles</td></tr>';
+    return;
+  }
+  tbody.innerHTML = pagos.map(p => {
+    const badge = p.estado === 'cobrado'
+      ? '<span class="badge badge-cobrado">COBRADO</span>'
+      : '<span class="badge badge-pendiente">PENDIENTE</span>';
+    return `<tr>
+      <td style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">${esc(p.fecha)}</td>
+      <td><div class="business-name">${esc(p.cliente)}</div></td>
+      <td style="font-size:12px;color:var(--cream);">${esc(p.concepto)}</td>
+      <td><span style="font-family:var(--font-display);font-size:18px;color:var(--gold);">${Number(p.importe).toLocaleString('es-ES')}€</span></td>
+      <td>${badge}</td>
+    </tr>`;
+  }).join('');
+  const countEl = document.getElementById('pagos-table-count');
+  if (countEl) countEl.textContent = `Mostrando ${pagos.length} de ${allPagosData.length} pagos`;
+}
+
+function applyIngresos(ing) {
+  if (!ing) return;
+  allPagosData = ing.pagos || [];
+  animateValue(document.getElementById('ing-total-anio'),  ing.total_anio,  '€');
+  animateValue(document.getElementById('ing-mes-actual'),  ing.mes_actual,  '€');
+  animateValue(document.getElementById('ing-pendiente'),   ing.pendiente,   '€');
+  animateValue(document.getElementById('ing-mrr'),         ing.mrr,         '€');
+  renderPagosTable(allPagosData);
+}
+
+// ============ RENDER: ACTIVIDAD ============
+function renderActivityFeed(items) {
+  const el = document.getElementById('activity-full-list');
+  if (!el) return;
+  if (!items || !items.length) {
+    el.innerHTML = '<div class="af-item"><div class="af-body"><div class="af-title" style="color:var(--muted2);">Sin actividad</div></div></div>';
+    return;
+  }
+  el.innerHTML = items.map(a => {
+    const time = (a.meta || '').split('·')[0].trim();
+    return `<div class="af-item">
+      <div class="af-icon" style="background:${a.color};">${a.icono}</div>
+      <div class="af-body">
+        <div class="af-title">${esc(a.titulo)}</div>
+        <div class="af-meta">${esc(a.meta)}</div>
+      </div>
+      <div class="af-time">${esc(time)}</div>
+    </div>`;
+  }).join('');
+}
+
+function applyActividad(actividad) {
+  allActivityData = actividad || [];
+  renderActivityFeed(allActivityData);
+}
+
+// ============ MASTER APPLY ============
+function applyData(raw) {
+  const d = {
+    kpis:          raw.kpis          || DEFAULT_DATA.kpis,
+    cash:          raw.cash          || DEFAULT_DATA.cash,
+    actividad:     raw.actividad     || DEFAULT_DATA.actividad,
+    funnel:        raw.funnel        || DEFAULT_DATA.funnel,
+    sectores:      raw.sectores      || DEFAULT_DATA.sectores,
+    top_leads:     raw.top_leads     || DEFAULT_DATA.top_leads,
+    leads:         raw.leads         || DEFAULT_DATA.leads,
+    demos:         raw.demos         || DEFAULT_DATA.demos,
+    clientes:      raw.clientes      || DEFAULT_DATA.clientes,
+    ingresos:      raw.ingresos      || DEFAULT_DATA.ingresos,
+    notificaciones:raw.notificaciones|| DEFAULT_DATA.notificaciones
+  };
+
+  applyDashboard(d);
+  applyLeads(d.leads);
+  applyDemos(d.demos);
+  applyClientes(d.clientes);
+  applyIngresos(d.ingresos);
+  applyActividad(d.actividad);
+
+  if (d.notificaciones && d.notificaciones.length) {
+    notifMessages.splice(0, notifMessages.length, ...d.notificaciones.map(n => ({ title: n.titulo, body: n.cuerpo })));
+  }
+}
+
+// ============ FETCH ============
 async function loadData() {
   try {
-    const res = await fetch(WEBHOOK_URL);
+    const res = await fetch(WEBHOOK_URL, { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     applyData(data);
@@ -1727,12 +1958,57 @@ async function loadData() {
 setTimeout(loadData, 300);
 setInterval(loadData, 60000);
 
-// SIDEBAR TOGGLE
+// ============ FILTERS ============
+function filterLeads(btn, filter) {
+  document.querySelectorAll('#leads-filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  let filtered = allLeadsData;
+  if (filter !== 'todos') {
+    filtered = allLeadsData.filter(l => {
+      if (filter === 'alta' || filter === 'media' || filter === 'baja')
+        return (l.prioridad || '').toLowerCase() === filter;
+      if (filter === 'nuevo')
+        return (l.estado || '').toLowerCase() === 'nuevo';
+      if (filter === 'cerrado')
+        return (l.estado || '').toLowerCase() === 'cerrado';
+      return true;
+    });
+  }
+  renderLeadsTable(filtered);
+}
+
+function filterDemos(btn, filter) {
+  document.querySelectorAll('#demos-filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  let filtered = allDemosData;
+  if (filter !== 'todas') {
+    filtered = allDemosData.filter(d => (d.estado || '').toLowerCase() === filter);
+  }
+  renderDemosTable(filtered);
+}
+
+function filterPagos(btn, filter) {
+  document.querySelectorAll('#pagos-filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  let filtered = allPagosData;
+  if (filter !== 'todos') {
+    filtered = allPagosData.filter(p => (p.estado || '').toLowerCase() === filter);
+  }
+  renderPagosTable(filtered);
+}
+
+function filterActivity(btn, filter) {
+  document.querySelectorAll('#activity-filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  let filtered = filter === 'todo' ? allActivityData : allActivityData.filter(a => a.tipo === filter);
+  renderActivityFeed(filtered);
+}
+
+// ============ SIDEBAR ============
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
-
-document.addEventListener('click', (e) => {
+document.addEventListener('click', e => {
   const sidebar = document.getElementById('sidebar');
   const ham = document.getElementById('ham');
   if (window.innerWidth < 900 && !sidebar.contains(e.target) && e.target !== ham) {
@@ -1740,7 +2016,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// PIPELINE TABS
+// ============ PIPELINE TABS ============
 document.querySelectorAll('.p-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.p-tab').forEach(t => t.classList.remove('active'));
@@ -1748,17 +2024,7 @@ document.querySelectorAll('.p-tab').forEach(tab => {
   });
 });
 
-// NAV ITEMS
-document.querySelectorAll('.nav-item').forEach(item => {
-  item.addEventListener('click', () => {
-    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-    item.classList.add('active');
-  });
-});
-
-// NOTIFICATIONS
-let notifMessages = DEFAULT_DATA.notificaciones.map(n => ({ title: n.titulo, body: n.cuerpo }));
-
+// ============ NOTIFICATIONS ============
 function showNotif(msg) {
   const notif = document.getElementById('notif');
   notif.querySelector('.notif-title').textContent = msg.title;
@@ -1768,16 +2034,30 @@ function showNotif(msg) {
 }
 
 setTimeout(() => showNotif(notifMessages[0]), 2000);
-
 let notifIdx = 1;
 setInterval(() => {
   showNotif(notifMessages[notifIdx % notifMessages.length]);
   notifIdx++;
 }, 10000);
 
-// SCRAPING BUTTON
+// ============ ACTION BUTTONS ============
 function runScraping() {
   showNotif({ title: '🔍 Scraping iniciado', body: 'Buscando negocios en Madrid...\nApify · Todos los sectores' });
+}
+function newLead() {
+  showNotif({ title: '📝 Nuevo Lead', body: 'Función próximamente\nConectar formulario con Airtable' });
+}
+function newDemo() {
+  showNotif({ title: '📩 Nueva Demo', body: 'Función próximamente\nGenerar URL y enviar por WhatsApp' });
+}
+function newCliente() {
+  showNotif({ title: '👤 Nuevo Cliente', body: 'Función próximamente\nConectar con Airtable' });
+}
+function exportData() {
+  showNotif({ title: '📊 Exportar datos', body: 'Función próximamente\nFormatos disponibles: CSV · Excel · PDF' });
+}
+function newPago() {
+  showNotif({ title: '💳 Registrar pago', body: 'Función próximamente\nConectar con Airtable' });
 }
 </script>
 </body>
